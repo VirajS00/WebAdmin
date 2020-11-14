@@ -81,7 +81,7 @@
             return $ip_address;
         }
 
-        public function getLocation() {
+        public function getCountry() {
             $ip = $this->getIP();
             $url = 'http://www.geoplugin.net/json.gp?ip='.$ip;
             $ch = curl_init();

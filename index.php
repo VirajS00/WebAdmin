@@ -1,10 +1,23 @@
 <?php 
-    include_once("getDetails.php");
+    include_once("php/getDetails.php");
+    include('php/connect.php');
     $userData = new getUserDetails;
+
+    $device = $userData->getDeviceType();
+    $browser = $userData->getBrowser();
+    $os = $userData->getOS();
+    $pageName = $userData->getPageName();
+    $country = $userData->getCountry();
     
-    echo $userData->getDeviceType() . "<br>";
-    echo $userData->getBrowser() ."<br>";
-    echo $userData->getOS() . "<br>";
-    echo $userData->getPageName() . "<br>";
-    print_r($userData->getLocation());
+    echo $device . "<br>";
+    echo $browser ."<br>";
+    echo $os . "<br>";
+    echo $pageName . "<br>";
+    echo $country;
+
+    $q = "INSERT INTO userData (id, DeviceType, Browser, OS, Page, Country) VALUES (NULL, '$device', '$browser', '$os', '$pageName', '$country')";
+    $res = mysqli_query($conn, $q);
+    if(!$res) {
+        echo "Mysql error: ".mysqli_error($conn);
+    }
 ?> 
