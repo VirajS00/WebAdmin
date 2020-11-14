@@ -52,9 +52,9 @@
                                 '/mac_powerpc/i'        =>  'Mac OS 9',
                                 '/linux/i'              =>  'Linux',
                                 '/ubuntu/i'             =>  'Ubuntu',
-                                '/iphone/i'             =>  'iPhone',
-                                '/ipod/i'               =>  'iPod',
-                                '/ipad/i'               =>  'iPad',
+                                '/iphone/i'             =>  'iOS',
+                                '/ipod/i'               =>  'iOS',
+                                '/ipad/i'               =>  'iOS/iPadOS',
                                 '/android/i'            =>  'Android',
                                 '/blackberry/i'         =>  'BlackBerry',
                                 '/webos/i'              =>  'Mobile'
