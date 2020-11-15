@@ -1,2 +1,6 @@
 *.php text
 *.phpt text
+*.phtml text
+*.sql text
+.gitattributes text
+.gitignore text
