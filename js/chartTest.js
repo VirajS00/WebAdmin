@@ -22,9 +22,14 @@ const createOSChart = async () => {
 		let dataGraph = [];
 		let numberOfColours = json.length;
 		let colours = randomColors(numberOfColours);
+		let total = 0;
+		for (let i = 0; i < json.length; i++) {
+			total += json[i][1];
+		}
+
 		json.forEach((item) => {
 			labels.push(item[0]);
-			dataGraph.push(item[1]);
+			dataGraph.push(((item[1] / total) * 100).toFixed(2));
 		});
 
 		let data = {
@@ -52,6 +57,14 @@ const createOSChart = async () => {
 					display: true,
 					text: 'Opperating system',
 					fontSize: 20
+				},
+				tooltips: {
+					mode: 'label',
+					callbacks: {
+						label: function (tooltipItem, data) {
+							return data['datasets'][0]['data'][tooltipItem['index']] + '%';
+						}
+					}
 				}
 			}
 		});
@@ -69,9 +82,14 @@ const getCountry = async () => {
 		let numberOfColours = json.length;
 		let colours = randomColors(numberOfColours);
 
+		let total = 0;
+		for (let i = 0; i < json.length; i++) {
+			total += json[i][1];
+		}
+
 		json.forEach((item) => {
 			labels.push(item[0]);
-			dataGraph.push(item[1]);
+			dataGraph.push(((item[1] / total) * 100).toFixed(2));
 		});
 
 		let data_2 = {
@@ -98,6 +116,14 @@ const getCountry = async () => {
 					display: true,
 					text: 'Countries',
 					fontSize: 20
+				},
+				tooltips: {
+					mode: 'label',
+					callbacks: {
+						label: function (tooltipItem, data) {
+							return data['datasets'][0]['data'][tooltipItem['index']] + '%';
+						}
+					}
 				}
 			}
 		});
@@ -115,9 +141,14 @@ const getBrowser = async () => {
 		let numberOfColours = json.length;
 		let colours = randomColors(numberOfColours);
 
+		let total = 0;
+		for (let i = 0; i < json.length; i++) {
+			total += json[i][1];
+		}
+
 		json.forEach((item) => {
 			labels.push(item[0]);
-			dataGraph.push(item[1]);
+			dataGraph.push(((item[1] / total) * 100).toFixed(2));
 		});
 
 		let data_3 = {
@@ -144,6 +175,14 @@ const getBrowser = async () => {
 					display: true,
 					text: 'Browsers',
 					fontSize: 20
+				},
+				tooltips: {
+					mode: 'label',
+					callbacks: {
+						label: function (tooltipItem, data) {
+							return data['datasets'][0]['data'][tooltipItem['index']] + '%';
+						}
+					}
 				}
 			}
 		});
@@ -161,9 +200,14 @@ const getDevice = async () => {
 		let numberOfColours = json.length;
 		let colours = randomColors(numberOfColours);
 
+		let total = 0;
+		for (let i = 0; i < json.length; i++) {
+			total += json[i][1];
+		}
+
 		json.forEach((item) => {
 			labels.push(item[0]);
-			dataGraph.push(item[1]);
+			dataGraph.push(((item[1] / total) * 100).toFixed(2));
 		});
 
 		let data_4 = {
@@ -190,6 +234,14 @@ const getDevice = async () => {
 					display: true,
 					text: 'Device Type',
 					fontSize: 20
+				},
+				tooltips: {
+					mode: 'label',
+					callbacks: {
+						label: function (tooltipItem, data) {
+							return data['datasets'][0]['data'][tooltipItem['index']] + '%';
+						}
+					}
 				}
 			}
 		});
@@ -207,9 +259,14 @@ const getPage = async () => {
 		let numberOfColours = json.length;
 		let colours = randomColors(numberOfColours);
 
+		let total = 0;
+		for (let i = 0; i < json.length; i++) {
+			total += json[i][1];
+		}
+
 		json.forEach((item) => {
 			labels.push(item[0].split('.').slice(0, -1).join('.'));
-			dataGraph.push(item[1]);
+			dataGraph.push(((item[1] / total) * 100).toFixed(2));
 		});
 		let data_5 = {
 			datasets: [
@@ -235,6 +292,14 @@ const getPage = async () => {
 					display: true,
 					text: 'Page names',
 					fontSize: 20
+				},
+				tooltips: {
+					mode: 'label',
+					callbacks: {
+						label: function (tooltipItem, data) {
+							return data['datasets'][0]['data'][tooltipItem['index']] + '%';
+						}
+					}
 				}
 			}
 		});
