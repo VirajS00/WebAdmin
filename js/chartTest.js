@@ -15,187 +15,232 @@ const randomColors = (num) => {
 };
 
 const createOSChart = async () => {
-	const res = await fetch('php/getOS.php');
-	const json = await res.json();
-	let labels = [];
-	let dataGraph = [];
-	let numberOfColours = json.length;
-	let colours = randomColors(numberOfColours);
-	json.forEach((item) => {
-		labels.push(item[0]);
-		dataGraph.push(item[1]);
-	});
+	try {
+		const res = await fetch('php/getOS.php');
+		const json = await res.json();
+		let labels = [];
+		let dataGraph = [];
+		let numberOfColours = json.length;
+		let colours = randomColors(numberOfColours);
+		json.forEach((item) => {
+			labels.push(item[0]);
+			dataGraph.push(item[1]);
+		});
 
-	let data = {
-		datasets: [
-			{
-				data: dataGraph,
-				backgroundColor: colours
-			}
-		],
-		labels: labels
-	};
+		let data = {
+			datasets: [
+				{
+					data: dataGraph,
+					backgroundColor: colours
+				}
+			],
+			labels: labels
+		};
 
-	let myDoughnutChart = new Chart(ctx, {
-		type: 'doughnut',
-		data: data,
-		options: {
-			maintainAspectRatio: false,
-			legend: {
-				position: 'bottom',
-				labels: {
-					boxWidth: 12
+		let myDoughnutChart = new Chart(ctx, {
+			type: 'doughnut',
+			data: data,
+			options: {
+				maintainAspectRatio: false,
+				legend: {
+					position: 'bottom',
+					labels: {
+						boxWidth: 12
+					}
+				},
+				title: {
+					display: true,
+					text: 'Opperating system',
+					fontSize: 20
 				}
 			}
-		}
-	});
+		});
+	} catch {
+		console.log('could not load data');
+	}
 };
 
 const getCountry = async () => {
-	const res = await fetch('php/getCountry.php');
-	const json = await res.json();
-	let labels = [];
-	let dataGraph = [];
-	let numberOfColours = json.length;
-	let colours = randomColors(numberOfColours);
+	try {
+		const res = await fetch('php/getCountry.php');
+		const json = await res.json();
+		let labels = [];
+		let dataGraph = [];
+		let numberOfColours = json.length;
+		let colours = randomColors(numberOfColours);
 
-	json.forEach((item) => {
-		labels.push(item[0]);
-		dataGraph.push(item[1]);
-	});
+		json.forEach((item) => {
+			labels.push(item[0]);
+			dataGraph.push(item[1]);
+		});
 
-	let data_2 = {
-		datasets: [
-			{
-				data: dataGraph,
-				backgroundColor: colours
-			}
-		],
-		labels: labels
-	};
-	let myDoughnutChart_2 = new Chart(ctx_2, {
-		type: 'doughnut',
-		data: data_2,
-		options: {
-			maintainAspectRatio: false,
-			legend: {
-				position: 'bottom',
-				labels: {
-					boxWidth: 12
+		let data_2 = {
+			datasets: [
+				{
+					data: dataGraph,
+					backgroundColor: colours
+				}
+			],
+			labels: labels
+		};
+		let myDoughnutChart_2 = new Chart(ctx_2, {
+			type: 'doughnut',
+			data: data_2,
+			options: {
+				maintainAspectRatio: false,
+				legend: {
+					position: 'bottom',
+					labels: {
+						boxWidth: 12
+					}
+				},
+				title: {
+					display: true,
+					text: 'Countries',
+					fontSize: 20
 				}
 			}
-		}
-	});
+		});
+	} catch {
+		console.log('could not load data');
+	}
 };
 
 const getBrowser = async () => {
-	const res = await fetch('php/getBrowser.php');
-	const json = await res.json();
-	let labels = [];
-	let dataGraph = [];
-	let numberOfColours = json.length;
-	let colours = randomColors(numberOfColours);
+	try {
+		const res = await fetch('php/getBrowser.php');
+		const json = await res.json();
+		let labels = [];
+		let dataGraph = [];
+		let numberOfColours = json.length;
+		let colours = randomColors(numberOfColours);
 
-	json.forEach((item) => {
-		labels.push(item[0]);
-		dataGraph.push(item[1]);
-	});
+		json.forEach((item) => {
+			labels.push(item[0]);
+			dataGraph.push(item[1]);
+		});
 
-	let data_3 = {
-		datasets: [
-			{
-				data: dataGraph,
-				backgroundColor: colours
-			}
-		],
-		labels: labels
-	};
-	let myDoughnutChart_3 = new Chart(ctx_3, {
-		type: 'doughnut',
-		data: data_3,
-		options: {
-			maintainAspectRatio: false,
-			legend: {
-				position: 'bottom',
-				labels: {
-					boxWidth: 12
+		let data_3 = {
+			datasets: [
+				{
+					data: dataGraph,
+					backgroundColor: colours
+				}
+			],
+			labels: labels
+		};
+		let myDoughnutChart_3 = new Chart(ctx_3, {
+			type: 'doughnut',
+			data: data_3,
+			options: {
+				maintainAspectRatio: false,
+				legend: {
+					position: 'bottom',
+					labels: {
+						boxWidth: 12
+					}
+				},
+				title: {
+					display: true,
+					text: 'Browsers',
+					fontSize: 20
 				}
 			}
-		}
-	});
+		});
+	} catch {
+		console.log('could not load data');
+	}
 };
 
 const getDevice = async () => {
-	const res = await fetch('php/getDevice.php');
-	const json = await res.json();
-	let labels = [];
-	let dataGraph = [];
-	let numberOfColours = json.length;
-	let colours = randomColors(numberOfColours);
+	try {
+		const res = await fetch('php/getDevice.php');
+		const json = await res.json();
+		let labels = [];
+		let dataGraph = [];
+		let numberOfColours = json.length;
+		let colours = randomColors(numberOfColours);
 
-	json.forEach((item) => {
-		labels.push(item[0]);
-		dataGraph.push(item[1]);
-	});
+		json.forEach((item) => {
+			labels.push(item[0]);
+			dataGraph.push(item[1]);
+		});
 
-	let data_4 = {
-		datasets: [
-			{
-				data: dataGraph,
-				backgroundColor: colours
-			}
-		],
-		labels: labels
-	};
-	let myDoughnutChart_4 = new Chart(ctx_4, {
-		type: 'doughnut',
-		data: data_4,
-		options: {
-			maintainAspectRatio: false,
-			legend: {
-				position: 'bottom',
-				labels: {
-					boxWidth: 12
+		let data_4 = {
+			datasets: [
+				{
+					data: dataGraph,
+					backgroundColor: colours
+				}
+			],
+			labels: labels
+		};
+		let myDoughnutChart_4 = new Chart(ctx_4, {
+			type: 'doughnut',
+			data: data_4,
+			options: {
+				maintainAspectRatio: false,
+				legend: {
+					position: 'bottom',
+					labels: {
+						boxWidth: 12
+					}
+				},
+				title: {
+					display: true,
+					text: 'Device Type',
+					fontSize: 20
 				}
 			}
-		}
-	});
+		});
+	} catch {
+		console.log('could not load data');
+	}
 };
 
 const getPage = async () => {
-	const res = await fetch('php/getPage.php');
-	const json = await res.json();
-	let labels = [];
-	let dataGraph = [];
-	let numberOfColours = json.length;
-	let colours = randomColors(numberOfColours);
+	try {
+		const res = await fetch('php/getPage.php');
+		const json = await res.json();
+		let labels = [];
+		let dataGraph = [];
+		let numberOfColours = json.length;
+		let colours = randomColors(numberOfColours);
 
-	json.forEach((item) => {
-		labels.push(item[0].split('.').slice(0, -1).join('.'));
-		dataGraph.push(item[1]);
-	});
-	let data_5 = {
-		datasets: [
-			{
-				data: dataGraph,
-				backgroundColor: colours
-			}
-		],
-		labels: labels
-	};
-	let myDoughnutChart_5 = new Chart(ctx_5, {
-		type: 'doughnut',
-		data: data_5,
-		options: {
-			maintainAspectRatio: false,
-			legend: {
-				position: 'bottom',
-				labels: {
-					boxWidth: 12
+		json.forEach((item) => {
+			labels.push(item[0].split('.').slice(0, -1).join('.'));
+			dataGraph.push(item[1]);
+		});
+		let data_5 = {
+			datasets: [
+				{
+					data: dataGraph,
+					backgroundColor: colours
+				}
+			],
+			labels: labels
+		};
+		let myDoughnutChart_5 = new Chart(ctx_5, {
+			type: 'doughnut',
+			data: data_5,
+			options: {
+				maintainAspectRatio: false,
+				legend: {
+					position: 'bottom',
+					labels: {
+						boxWidth: 12
+					}
+				},
+				title: {
+					display: true,
+					text: 'Page names',
+					fontSize: 20
 				}
 			}
-		}
-	});
+		});
+	} catch {
+		console.log('could not load data');
+	}
 };
 
 createOSChart();
