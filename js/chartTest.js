@@ -61,9 +61,8 @@ const createOSChart = async () => {
 				tooltips: {
 					mode: 'label',
 					callbacks: {
-						label: function (tooltipItem, data) {
-							return data['datasets'][0]['data'][tooltipItem['index']] + '%';
-						}
+						label: (tooltipItem, data) =>
+							data['datasets'][0]['data'][tooltipItem['index']] + '%'
 					}
 				}
 			}
@@ -120,9 +119,8 @@ const getCountry = async () => {
 				tooltips: {
 					mode: 'label',
 					callbacks: {
-						label: function (tooltipItem, data) {
-							return data['datasets'][0]['data'][tooltipItem['index']] + '%';
-						}
+						label: (tooltipItem, data) =>
+							data['datasets'][0]['data'][tooltipItem['index']] + '%'
 					}
 				}
 			}
@@ -179,9 +177,8 @@ const getBrowser = async () => {
 				tooltips: {
 					mode: 'label',
 					callbacks: {
-						label: function (tooltipItem, data) {
-							return data['datasets'][0]['data'][tooltipItem['index']] + '%';
-						}
+						label: (tooltipItem, data) =>
+							data['datasets'][0]['data'][tooltipItem['index']] + '%'
 					}
 				}
 			}
@@ -238,9 +235,8 @@ const getDevice = async () => {
 				tooltips: {
 					mode: 'label',
 					callbacks: {
-						label: function (tooltipItem, data) {
-							return data['datasets'][0]['data'][tooltipItem['index']] + '%';
-						}
+						label: (tooltipItem, data) =>
+							data['datasets'][0]['data'][tooltipItem['index']] + '%'
 					}
 				}
 			}
@@ -296,9 +292,8 @@ const getPage = async () => {
 				tooltips: {
 					mode: 'label',
 					callbacks: {
-						label: function (tooltipItem, data) {
-							return data['datasets'][0]['data'][tooltipItem['index']] + '%';
-						}
+						label: (tooltipItem, data) =>
+							data['datasets'][0]['data'][tooltipItem['index']] + '%'
 					}
 				}
 			}
