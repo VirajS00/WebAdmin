@@ -8,6 +8,7 @@
 	</head>
 	<body>
 		<main>
+		<img src="images/menu.svg" alt="menu sign" class="menuSign" height="30px" width="30px">
 			<div class="chart_container">
 				<div class="chart">
 					<canvas id="layanan"></canvas>
