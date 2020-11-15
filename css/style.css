@@ -1,0 +1,21 @@
+.chart {
+	width: 240px;
+	height: 240px;
+}
+
+main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+}
+
+.chart_container {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	grid-template-columns: repeat(3, 240px);
+}
