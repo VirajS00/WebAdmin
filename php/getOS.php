@@ -14,7 +14,6 @@
             if($r) {
                 $data = mysqli_fetch_object($r);
                 $count = $data->os_count;
-                // echo "$OS: $count<br>";
                 array_push($os_count, [$OS, (int)$count]);
             }
         }

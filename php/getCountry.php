@@ -14,7 +14,6 @@
             if($r) {
                 $data = mysqli_fetch_object($r);
                 $count = $data->Country_count;
-                // echo "$OS: $count<br>";
                 array_push($country_count, [$country, (int)$count]);
             }
         }

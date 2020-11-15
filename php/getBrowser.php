@@ -14,7 +14,6 @@
             if($r) {
                 $data = mysqli_fetch_object($r);
                 $count = $data->Browser_count;
-                // echo "$OS: $count<br>";
                 array_push($browser_count, [$browser, (int)$count]);
             }
         }
