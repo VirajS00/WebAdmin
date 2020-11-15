@@ -1,4 +1,10 @@
 const ctx = document.getElementById('layanan').getContext('2d');
+const ctx_2 = document.getElementById('layanan_subbagian').getContext('2d');
+const ctx_3 = document.getElementById('layanan_subbagian_one').getContext('2d');
+const ctx_4 = document.getElementById('layanan_subbagian_two').getContext('2d');
+const ctx_5 = document
+	.getElementById('layanan_subbagian_three')
+	.getContext('2d');
 
 const randomColors = (num) => {
 	let colors = [];
@@ -9,7 +15,7 @@ const randomColors = (num) => {
 };
 
 const createOSChart = async () => {
-	const res = await fetch('php/getChartData.php');
+	const res = await fetch('php/getOS.php');
 	const json = await res.json();
 	let labels = [];
 	let dataGraph = [];
@@ -45,102 +51,155 @@ const createOSChart = async () => {
 	});
 };
 
+const getCountry = async () => {
+	const res = await fetch('php/getCountry.php');
+	const json = await res.json();
+	let labels = [];
+	let dataGraph = [];
+	let numberOfColours = json.length;
+	let colours = randomColors(numberOfColours);
+
+	json.forEach((item) => {
+		labels.push(item[0]);
+		dataGraph.push(item[1]);
+	});
+
+	let data_2 = {
+		datasets: [
+			{
+				data: dataGraph,
+				backgroundColor: colours
+			}
+		],
+		labels: labels
+	};
+	let myDoughnutChart_2 = new Chart(ctx_2, {
+		type: 'doughnut',
+		data: data_2,
+		options: {
+			maintainAspectRatio: false,
+			legend: {
+				position: 'bottom',
+				labels: {
+					boxWidth: 12
+				}
+			}
+		}
+	});
+};
+
+const getBrowser = async () => {
+	const res = await fetch('php/getBrowser.php');
+	const json = await res.json();
+	let labels = [];
+	let dataGraph = [];
+	let numberOfColours = json.length;
+	let colours = randomColors(numberOfColours);
+
+	json.forEach((item) => {
+		labels.push(item[0]);
+		dataGraph.push(item[1]);
+	});
+
+	let data_3 = {
+		datasets: [
+			{
+				data: dataGraph,
+				backgroundColor: colours
+			}
+		],
+		labels: labels
+	};
+	let myDoughnutChart_3 = new Chart(ctx_3, {
+		type: 'doughnut',
+		data: data_3,
+		options: {
+			maintainAspectRatio: false,
+			legend: {
+				position: 'bottom',
+				labels: {
+					boxWidth: 12
+				}
+			}
+		}
+	});
+};
+
+const getDevice = async () => {
+	const res = await fetch('php/getDevice.php');
+	const json = await res.json();
+	let labels = [];
+	let dataGraph = [];
+	let numberOfColours = json.length;
+	let colours = randomColors(numberOfColours);
+
+	json.forEach((item) => {
+		labels.push(item[0]);
+		dataGraph.push(item[1]);
+	});
+
+	let data_4 = {
+		datasets: [
+			{
+				data: dataGraph,
+				backgroundColor: colours
+			}
+		],
+		labels: labels
+	};
+	let myDoughnutChart_4 = new Chart(ctx_4, {
+		type: 'doughnut',
+		data: data_4,
+		options: {
+			maintainAspectRatio: false,
+			legend: {
+				position: 'bottom',
+				labels: {
+					boxWidth: 12
+				}
+			}
+		}
+	});
+};
+
+const getPage = async () => {
+	const res = await fetch('php/getPage.php');
+	const json = await res.json();
+	let labels = [];
+	let dataGraph = [];
+	let numberOfColours = json.length;
+	let colours = randomColors(numberOfColours);
+
+	json.forEach((item) => {
+		labels.push(item[0].split('.').slice(0, -1).join('.'));
+		dataGraph.push(item[1]);
+	});
+	let data_5 = {
+		datasets: [
+			{
+				data: dataGraph,
+				backgroundColor: colours
+			}
+		],
+		labels: labels
+	};
+	let myDoughnutChart_5 = new Chart(ctx_5, {
+		type: 'doughnut',
+		data: data_5,
+		options: {
+			maintainAspectRatio: false,
+			legend: {
+				position: 'bottom',
+				labels: {
+					boxWidth: 12
+				}
+			}
+		}
+	});
+};
+
 createOSChart();
-
-// const ctx_2 = document.getElementById('layanan_subbagian').getContext('2d');
-// let data_2 = {
-// 	datasets: [
-// 		{
-// 			data: [10, 20, 30],
-// 			backgroundColor: ['#3c8dbc', '#f56954', '#f39c12']
-// 		}
-// 	],
-// 	labels: ['Request', 'Layanan', 'Problem']
-// };
-// let myDoughnutChart_2 = new Chart(ctx_2, {
-// 	type: 'doughnut',
-// 	data: data_2,
-// 	options: {
-// 		maintainAspectRatio: false,
-// 		legend: {
-// 			position: 'bottom',
-// 			labels: {
-// 				boxWidth: 12
-// 			}
-// 		}
-// 	}
-// });
-
-// const ctx_3 = document.getElementById('layanan_subbagian_one').getContext('2d');
-// let data_3 = {
-// 	datasets: [
-// 		{
-// 			data: [10, 30, 20],
-// 			backgroundColor: ['#3c8dbc', '#f56954', '#f39c12']
-// 		}
-// 	],
-// 	labels: ['Request', 'Layanan', 'Problem']
-// };
-// let myDoughnutChart_3 = new Chart(ctx_3, {
-// 	type: 'doughnut',
-// 	data: data_3,
-// 	options: {
-// 		maintainAspectRatio: false,
-// 		legend: {
-// 			position: 'bottom',
-// 			labels: {
-// 				boxWidth: 12
-// 			}
-// 		}
-// 	}
-// });
-
-// const ctx_4 = document.getElementById('layanan_subbagian_two').getContext('2d');
-// let data_4 = {
-// 	datasets: [
-// 		{
-// 			data: [30, 10, 20],
-// 			backgroundColor: ['#3c8dbc', '#f56954', '#f39c12']
-// 		}
-// 	],
-// 	labels: ['Request', 'Layanan', 'Problem']
-// };
-// let myDoughnutChart_4 = new Chart(ctx_4, {
-// 	type: 'doughnut',
-// 	data: data_4,
-// 	options: {
-// 		maintainAspectRatio: false,
-// 		legend: {
-// 			position: 'bottom',
-// 			labels: {
-// 				boxWidth: 12
-// 			}
-// 		}
-// 	}
-// });
-
-// const ctx_5 = document
-// 	.getElementById('layanan_subbagian_three')
-// 	.getContext('2d');
-// let data_5 = {
-// 	datasets: [
-// 		{
-// 			data: [20, 20, 20],
-// 			backgroundColor: ['#3c8dbc', '#f56954', '#f39c12']
-// 		}
-// 	],
-// 	labels: ['Request', 'Layanan', 'Problem']
-// };
-// let myDoughnutChart_5 = new Chart(ctx_5, {
-// 	type: 'doughnut',
-// 	data: data_5,
-// 	options: {
-// 		maintainAspectRatio: false,
-// 		legend: {
-// 			position: 'bottom',
-// 			labels: {
-// 				boxWidth: 12
-// 			}
-// 		}
-// 	}
-// });
+getCountry();
+getBrowser();
+getDevice();
+getPage();
