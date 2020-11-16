@@ -26,10 +26,10 @@
 - [ ] Create page for updating About page
 - [ ] Create page for updating Contact page
 
-#### CSS
+#### HTML & CSS
 
 - [x] Add nav menu
 - [x] Add basic styles
 - [ ] Style table for displaying content
 
-This project will be made in **PHP** since my website is made in PHP along with **AJAX** using **fetch** for interactions.
+This project will be mostly made in **PHP** since my website is made in PHP along with **AJAX** using **fetch** for interactions.
