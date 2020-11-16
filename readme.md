@@ -32,6 +32,6 @@
 - [x] Add basic styles
 - [ ] Style table for displaying content
 
-##
+###
 
 This project will be mostly made in **PHP** since my website is made in PHP along with **AJAX** using **fetch** for interactions.
