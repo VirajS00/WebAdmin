@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+	--font-primary: 'Montserrat', sans-serif;
+	--clr-light: #ffffff;
+	--clr-dark: #000000;
+	--clr-hover: #008ce8;
+}
+
 .chart {
 	width: 250px;
 	height: 250px;
@@ -9,6 +18,7 @@ main {
 	left: 0;
 	height: 100vh;
 	width: 100vw;
+	font-family: var(--font-primary);
 }
 
 .chart_container {
@@ -25,4 +35,49 @@ main {
 	top: 20px;
 	left: 20px;
 	cursor: pointer;
+}
+
+.nav-container {
+	z-index: 999;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0, 0, 0, 0.6);
+	pointer-events: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transform: scale(0, 1);
+}
+
+.nav-ul {
+	height: 100%;
+	width: 200px;
+	background-color: #fff;
+	position: fixed;
+	top: -15px;
+	left: 0;
+	transform: scale(0, 1);
+	transition: transform 350ms ease;
+	transform-origin: left;
+}
+
+.nav-li {
+	position: relative;
+	top: 20px;
+	margin-bottom: 10px;
+	list-style-type: none;
+}
+
+.link-menu {
+	text-decoration: none;
+	color: #000;
+	font-family: var(--font-primary);
+}
+
+.link-menu:hover {
+	color: var(--clr-hover);
+}
+
+.head-menu {
+	font-family: var(--font-primary);
 }
