@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 14, 2020 at 08:18 PM
+-- Generation Time: Nov 17, 2020 at 11:55 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -25,33 +25,33 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userData`
+-- Table structure for table `images`
 --
 
-CREATE TABLE `userData` (
-  `id` int(11) NOT NULL,
-  `DeviceType` varchar(60) NOT NULL,
-  `Browser` varchar(60) NOT NULL,
-  `OS` varchar(60) NOT NULL,
-  `Page` varchar(60) NOT NULL,
-  `Country` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `images` (
+  `img_id` int(11) NOT NULL,
+  `img_path` text COLLATE utf8_unicode_ci NOT NULL,
+  `categ_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `category` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `caption` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `url_small` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Indexes for table `userData`
+-- Indexes for table `images`
 --
-ALTER TABLE `userData`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`img_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `userData`
+-- AUTO_INCREMENT for table `images`
 --
-ALTER TABLE `userData`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `images`
+  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

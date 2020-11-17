@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 14, 2020 at 08:18 PM
+-- Generation Time: Nov 17, 2020 at 11:57 AM
 -- Server version: 10.1.40-MariaDB
 -- PHP Version: 7.3.5
 
@@ -25,33 +25,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userData`
+-- Table structure for table `login`
 --
 
-CREATE TABLE `userData` (
-  `id` int(11) NOT NULL,
-  `DeviceType` varchar(60) NOT NULL,
-  `Browser` varchar(60) NOT NULL,
-  `OS` varchar(60) NOT NULL,
-  `Page` varchar(60) NOT NULL,
-  `Country` varchar(255) NOT NULL
+CREATE TABLE `login` (
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(60) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for table `userData`
+-- Indexes for dumped tables
 --
-ALTER TABLE `userData`
-  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `userData`
+-- AUTO_INCREMENT for table `login`
 --
-ALTER TABLE `userData`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `login`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -10,6 +10,8 @@ menuSign.addEventListener('click', () => {
 container.addEventListener('click', (e) => {
 	if (e.target !== container) return;
 	menu.style.transform = 'scale(0, 1)';
-	container.style.pointerEvents = 'none';
-	container.style.transform = 'scale(0, 1)';
+	setTimeout(() => {
+		container.style.transform = 'scale(0, 1)';
+		container.style.pointerEvents = 'none';
+	}, 300);
 });
