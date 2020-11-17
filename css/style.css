@@ -7,11 +7,6 @@
 	--clr-hover: #008ce8;
 }
 
-.chart {
-	width: 250px;
-	height: 250px;
-}
-
 main {
 	position: absolute;
 	top: 0;
@@ -28,6 +23,11 @@ main {
 	width: 100%;
 	height: 100%;
 	grid-template-columns: repeat(3, 240px);
+}
+
+.chart {
+	width: 250px;
+	height: 250px;
 }
 
 .menuSign {
@@ -80,4 +80,13 @@ main {
 
 .head-menu {
 	font-family: var(--font-primary);
+}
+
+.photos_container {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 20px;
 }

@@ -18,6 +18,7 @@
 - [x] Add Login
 - [x] Create script for getting visitor tracking data
 - [ ] Create visitor counter
+- [x] Create page for displaying photos in database
 - [ ] Create image uploading script
 - [ ] Create a script for receiving messages/user feedback
 - [ ] Create page for adding to the "other content" segment
@@ -30,7 +31,7 @@
 
 - [x] Add nav menu
 - [x] Add basic styles
-- [ ] Style table for displaying content
+- [x] Style table for displaying content
 
 ###
 

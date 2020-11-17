@@ -1,0 +1,39 @@
+th {
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+	border-bottom: 2px solid #ccc;
+	position: sticky;
+	top: 0;
+	background-color: #fff;
+}
+
+td {
+	border-bottom: 1px solid #eee;
+	padding: 1rem;
+}
+
+tr:hover {
+	background-color: #eee;
+	cursor: move;
+}
+
+.editlink {
+	text-decoration: none;
+	color: #2669b5;
+}
+
+.editlink:hover {
+	text-decoration: underline;
+}
+
+.del-button {
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	border: 2px solid red;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+}

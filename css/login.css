@@ -79,4 +79,5 @@ form {
 	width: 100vw;
 	position: absolute;
 	top: 10%;
+	font-family: var(--font-primary);
 }
