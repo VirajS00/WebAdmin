@@ -7,7 +7,12 @@ form.addEventListener('submit', (e) => {
 		method: 'POST',
 		body: formdata
 	})
-		.then((res) => res.text())
+		.then((res) => {
+			if (!res.ok) {
+				throw new Error(response);
+			}
+			return res.text();
+		})
 		.then((text) => {
 			if (
 				text === 'please enter username' ||

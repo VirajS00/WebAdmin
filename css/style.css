@@ -78,6 +78,10 @@ main {
 	color: var(--clr-hover);
 }
 
+.act {
+	color: var(--clr-hover);
+}
+
 .head-menu {
 	font-family: var(--font-primary);
 }
@@ -89,4 +93,45 @@ main {
 	flex-direction: column;
 	align-items: center;
 	margin-top: 20px;
+}
+
+.loader-container {
+	background-color: rgba(0, 0, 0, 0.5);
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
+
+.loader {
+	height: 50px;
+	width: 50px;
+	border: 5px solid #ccc;
+	border-top-color: var(--clr-hover);
+	background-color: var(--clr-light);
+	border-radius: 50%;
+	animation: loader 1.5s linear infinite;
+}
+
+@keyframes loader {
+	0% {
+		transform: rotate(0deg);
+	}
+	25% {
+		transform: rotate(90deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	75% {
+		transform: rotate(270deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }

@@ -17,7 +17,7 @@
 			<nav>
 				<ul class="nav-ul">
 					<li class="nav-li"><h2 class="head-menu">Menu</h2></li>
-					<li class="nav-li"><a href="#" class="link-menu">Home</a></li>
+					<li class="nav-li"><a href="#" class="link-menu act">Home</a></li>
 					<li class="nav-li"><a href="photos.php" class="link-menu">Photos</a></li>
 					<li class="nav-li"><a href="#" class="link-menu">Other content</a></li>
 					<li class="nav-li"><a href="#" class="link-menu">Feedback</a></li>

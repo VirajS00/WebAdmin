@@ -11,7 +11,7 @@
 
 - [x] Create Graphs from database using Chart.js
 - [ ] Create adding and removing videos using the YouTube API
-- [ ] Creating sortable tables
+- [x] Creating sortable tables
 
 #### PHP
 
