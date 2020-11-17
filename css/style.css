@@ -78,6 +78,16 @@ main {
 	color: var(--clr-hover);
 }
 
+.subnav {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	list-style: none;
+}
+
+.subnavli {
+	padding: 3px 0;
+}
+
 .act {
 	color: var(--clr-hover);
 }

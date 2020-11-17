@@ -18,7 +18,13 @@
 				<ul class="nav-ul">
 					<li class="nav-li"><h2 class="head-menu">Menu</h2></li>
 					<li class="nav-li"><a href="#" class="link-menu act">Home</a></li>
-					<li class="nav-li"><a href="photos.php" class="link-menu">Photos</a></li>
+					<li class="nav-li"><a href="photos.php" class="link-menu">Photos</a>
+						<ul class="subnav">
+							<li class="subnavli"><a href="photos.php?categ_id=1" class="link-menu <?php if (isset($_GET['categ_id'])){ if($_GET['categ_id'] == 1){echo "act";}} ?>">Abstract</a></li>
+							<li class="subnavli"><a href="photos.php?categ_id=2" class="link-menu <?php if (isset($_GET['categ_id'])){ if($_GET['categ_id'] == 2){echo "act";}} ?>">Nature</a></li>
+							<li class="subnavli"><a href="photos.php?categ_id=3" class="link-menu <?php if (isset($_GET['categ_id'])){ if($_GET['categ_id'] == 3){echo "act";}} ?>">Macro</a></li>
+						</ul>
+					</li>
 					<li class="nav-li"><a href="#" class="link-menu">Other content</a></li>
 					<li class="nav-li"><a href="#" class="link-menu">Feedback</a></li>
 					<li class="nav-li"><a href="php/logout.php" class="link-menu">Logout</a></li>

@@ -4,13 +4,19 @@
 	if(!isset($_SESSION['user_id'])){
 		header('location: index.php');
 	}
+	if(isset($_GET['categ_id'])) { 
+		$q0 = 'SELECT category FROM images WHERE categ_id = '.$_GET['categ_id'].' LIMIT 1';
+		$r0 = mysqli_query($conn, $q0);
+		$data0 = mysqli_fetch_array($r0);
+		$category = $data0['category'];
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Admin - Photos</title>
+		<title>Admin - Photos <?php if(isset($category)) { echo " - $category"; } ?></title>
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/photos.css" />
 	</head>
@@ -23,7 +29,13 @@
 				<ul class="nav-ul">
 					<li class="nav-li"><h2 class="head-menu">Menu</h2></li>
 					<li class="nav-li"><a href="home.php" class="link-menu">Home</a></li>
-					<li class="nav-li"><a href="#" class="link-menu act">Photos</a></li>
+					<li class="nav-li"><a href="photos.php" class="link-menu act">Photos</a>
+						<ul class="subnav">
+							<li class="subnavli"><a href="photos.php?categ_id=1" class="link-menu <?php if (isset($_GET['categ_id'])){ if($_GET['categ_id'] == 1){echo "act";}} ?>">Abstract</a></li>
+							<li class="subnavli"><a href="photos.php?categ_id=2" class="link-menu <?php if (isset($_GET['categ_id'])){ if($_GET['categ_id'] == 2){echo "act";}} ?>">Nature</a></li>
+							<li class="subnavli"><a href="photos.php?categ_id=3" class="link-menu <?php if (isset($_GET['categ_id'])){ if($_GET['categ_id'] == 3){echo "act";}} ?>">Macro</a></li>
+						</ul>
+					</li>
 					<li class="nav-li">
 						<a href="#" class="link-menu">Other content</a>
 					</li>
@@ -43,7 +55,7 @@
 					height="30px"
 					width="30px"
 				/>
-				<h1 class="head">Photos</h1>
+				<h1 class="head">Photos <?php if(isset($category)) { echo " - $category"; } ?></h1>
 				<table class='draggable-container'>
 						<thead>
 						<tr>
@@ -56,7 +68,11 @@
 						</thead>
 						<tbody>
 						<?php
-							$q = 'SELECT * FROM images ORDER BY sort';
+							if(!isset($_GET['categ_id'])) {
+								$q = 'SELECT * FROM images ORDER BY sort';
+							} else {
+								$q = "SELECT * FROM images WHERE categ_id = ".$_GET['categ_id']." ORDER BY sort";
+							}
 							$r = mysqli_query($conn, $q);
 							while($row = mysqli_fetch_array($r)) {
 								echo "<tr draggable='true' class='draggable' data-position='".$row['sort']."' data-index='".$row['img_id']."'>";
