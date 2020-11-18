@@ -41,3 +41,29 @@ tr:hover {
 .dragging {
 	opacity: 0.7;
 }
+
+.head {
+	display: flex;
+	width: 100%;
+	max-width: 750px;
+	justify-content: space-between;
+	box-sizing: border-box;
+	padding: 0 0.7em;
+}
+
+.add {
+	height: 40px;
+	width: 40px;
+	border: 2px solid #ccc;
+	border-radius: 0.3em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	color: #777;
+}
+
+.add:hover {
+	background-color: #ccc;
+	color: #666;
+}

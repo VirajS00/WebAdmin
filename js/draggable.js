@@ -9,7 +9,7 @@ draggables.forEach((draggable) => {
 		draggable.classList.remove('dragging');
 		const childNodes = [...document.querySelectorAll('.draggable')];
 		childNodes.forEach((item, index) => {
-			if (item.getAttribute('data-position') !== index + 1) {
+			if (draggable.getAttribute('data-position') !== index + 1) {
 				item.setAttribute('data-position', index + 1);
 				item.classList.add('updated');
 			}

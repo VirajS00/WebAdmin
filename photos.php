@@ -55,7 +55,7 @@
 					height="30px"
 					width="30px"
 				/>
-				<h1 class="head">Photos <?php if(isset($category)) { echo " - $category"; } ?></h1>
+				<h1 class="head">Photos <?php if(isset($category)) { echo " - $category"; } ?> <a href="addPhotos.php" class="add">+</a></h1>
 				<table class='draggable-container'>
 						<thead>
 						<tr>
