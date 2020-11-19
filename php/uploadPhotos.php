@@ -7,7 +7,7 @@
             $file = $_FILES['photo'];
             $fileTmpLoc = $file['tmp_name'];
             $catId = $_POST['category_id'];
-            $status = $res = new \stdClass();
+            $status = new \stdClass();
             $catName;
             $errors = [];
             if($catId == '0') {
@@ -32,7 +32,7 @@
                     exit();
                 } else {
                     $q = 'INSERT INTO images (img_id, img_path, categ_id, category, caption, url_small, sort)
-                    VALUES (NULL, "'.$images.'", '.$catId.', "'.$catName.'", "'.$caption.'", "'.$images.'", 0)';
+                    VALUES (NULL, "pics/'.$images.'", '.$catId.', "'.$catName.'", "'.$caption.'", "pics/'.$images.'", 0)';
                     $r = mysqli_query($conn, $q);
                     if($r) {
                         $status->status = 'sucess';

@@ -20,6 +20,7 @@
 - [ ] Create visitor counter
 - [x] Create page for displaying photos in database
 - [x] Create image uploading script
+- [x] Create script for deleting images
 - [x] Create page/script for updating image caption and category
 - [ ] Create a script for receiving messages/user feedback
 - [ ] Create page for adding to the "other content" segment

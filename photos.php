@@ -80,8 +80,9 @@
 								echo "<td>".$row['caption']."</td>";
 								echo "<td><img src='".$row['url_small']."' height='80px' class='img' loading='lazy'></td>";
 								echo "<td>".$row['category']."</td>";
-								echo "<td><form action=''><input type='hidden' value='".$row['img_id']."' />
-									<input type='button' value='&times;' class='del-button' /></form></td>";
+								echo "<td><form action='php/delPhoto.php' method='post' class='delForm'><input type='hidden' name='img_id' id='img_id' value='".$row['img_id']."' />
+										<input type='hidden' value='".$row['categ_id']."' name='categ_id' id='categ_id'>
+									<input type='submit' value='&times;' class='del-button' /></form></td>";
 								echo "<td><a href='editPhotos.php?img_id=".$row['img_id']."' class='editlink'>edit</a></td>";
 								echo "</tr>";
 							}

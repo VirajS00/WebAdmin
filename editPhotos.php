@@ -34,6 +34,7 @@
 	</head>
 	<body>
 		<main>
+			<a href="javascript: history.go(-1);" class="back"><< Back</a>
 			<div class="form-container">
 				<img
 					src="<?php echo $url_small; ?>"
