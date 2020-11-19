@@ -5,10 +5,11 @@
 		header('location: index.php');
 	}
 	if(isset($_GET['categ_id'])) { 
-		$q0 = 'SELECT category FROM images WHERE categ_id = '.$_GET['categ_id'].' LIMIT 1';
+		$q0 = 'SELECT category, COUNT(img_id) AS total_pics FROM images WHERE categ_id = '.$_GET['categ_id'].' LIMIT 1';
 		$r0 = mysqli_query($conn, $q0);
 		$data0 = mysqli_fetch_array($r0);
 		$category = $data0['category'];
+		$total_pics = $data0['total_pics'];
 	}
 ?>
 <!DOCTYPE html>
@@ -55,7 +56,7 @@
 					height="30px"
 					width="30px"
 				/>
-				<h1 class="head">Photos <?php if(isset($category)) { echo " - $category"; } ?> <a href="addPhotos.php" class="add">+</a></h1>
+				<h1 class="head">Photos <?php if(isset($category)) { echo " - $category - $total_pics Photos"; } ?> <a href="addPhotos.php" class="add">+</a></h1>
 				<table class='draggable-container'>
 						<thead>
 						<tr>
@@ -81,7 +82,7 @@
 								echo "<td>".$row['category']."</td>";
 								echo "<td><form action=''><input type='hidden' value='".$row['img_id']."' />
 									<input type='button' value='&times;' class='del-button' /></form></td>";
-								echo "<td><a href='#' class='editlink'>edit</a></td>";
+								echo "<td><a href='editPhotos.php?img_id=".$row['img_id']."' class='editlink'>edit</a></td>";
 								echo "</tr>";
 							}
 						?>
