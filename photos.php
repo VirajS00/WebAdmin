@@ -40,6 +40,7 @@
 					<li class="nav-li">
 						<a href="#" class="link-menu">Other content</a>
 					</li>
+					<li class="nav-li"><a href="videos.php" class="link-menu">Videos</a></li>
 					<li class="nav-li"><a href="#" class="link-menu">Feedback</a></li>
 					<li class="nav-li">
 						<a href="php/logout.php" class="link-menu">Logout</a>
