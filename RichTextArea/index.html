@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Rich text area</title>
+		<link rel="stylesheet" href="textArea.css" />
+	</head>
+	<body>
+		<div class="code-container">
+			<textarea id="code" class="code"></textarea>
+			<button class="update">Update</button>
+		</div>
+		<main>
+			<div class="form-container">
+				<form>
+					<textarea
+						name="inputText"
+						id="inputText"
+						class="textarea input"
+						cols=""
+						rows=""
+					></textarea>
+					<div class="textarea-container">
+						<div class="controls">
+							<button class="icon" id="bold"><b>B</b></button>
+							<button class="icon" id="italic"><i>i</i></button>
+							<button class="icon" id="underline"><u>U</u></button>
+							<button class="icon" id="link">
+								<img src="Assets/link.png" alt="link" class="btn-img" />
+							</button>
+							<button class="icon" id="unlink">
+								<img src="Assets/unlink.png" alt="unlink" class="btn-img" />
+							</button>
+							<button class="icon" id="image">
+								<img src="Assets/image.png" alt="image" class="btn-img" />
+							</button>
+							<button class="icon" id="htmlcode">
+								<img src="Assets/code.png" alt="code" class="btn-img" />
+							</button>
+						</div>
+						<iframe
+							src="about:blank"
+							contenteditable="true"
+							style="width: 100%; height: 200px"
+							name="iframe"
+							id="iframe"
+							class="richTextArea"
+						></iframe>
+					</div>
+				</form>
+			</div>
+		</main>
+		<script src="textarea.js"></script>
+	</body>
+</html>

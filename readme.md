@@ -12,6 +12,7 @@
 - [x] Create Graphs from database using Chart.js
 - [ ] Create adding and removing videos using the YouTube API
 - [x] Creating sortable tables
+- [x] Create rich textarea
 
 #### PHP
 
@@ -24,7 +25,7 @@
 - [x] Create page/script for updating image caption and category
 - [ ] Create a script for receiving messages/user feedback
 - [ ] Create page for adding to the "other content" segment
-- [ ] Create page for editing the "other content" segment
+- [x] Create page for editing the "other content" segment
 - [x] Create page for viewing and reordering the "other content" segment
 - [ ] Create page for updating About page
 - [ ] Create page for updating Contact page
