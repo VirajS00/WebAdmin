@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="css/other.css" />
 </head>
 <body>
+    <div class="loader-container">
+		<div class="loader"></div>
+	</div>
     <div class="nav-container">
 			<nav>
 				<ul class="nav-ul">
@@ -68,22 +71,25 @@
                         <th>Delete</th>
                         <th>Edit</th>
                     </tr>
+                </thead>
+                <tbody>
                     <?php
-                        $q  = 'SELECT id, title, img_small, very_short_desc FROM other';
+                        $q  = 'SELECT id, title, img_small, very_short_desc, sort FROM other ORDER BY sort';
                         $r = mysqli_query($conn, $q);
                         while ($row = mysqli_fetch_array($r)) {
-                            echo("<tr>
+                            echo("<tr draggable='true' class='draggable' data-position='".$row['sort']."' data-index='".$row['id']."'>
                                     <td>".$row['title']."</td>
                                     <td><img src='../".$row['img_small']."' height='80px'></td>
                                     <td>".$row['very_short_desc']."</td>
                                     <td><form method='post' action='php/delOther.php'><input type='hidden' value='".$row['id']."'><input type='submit' value='&times;' class='del-button'></form></td>
-                                    <td><a href='php/editOther.php?id=".$row['id']."' class='editlink'>edit</a></td>
+                                    <td><a href='editOther.php?id=".$row['id']."' class='editlink'>edit</a></td>
                                 </tr>");
                         }
                     ?>
-                </thead>
+                </tbody>
             </table>
         </main>
     <script src="js/nav.js"></script>
+    <script src="js/ChangeOrderOther.js"></script>
 </body>
 </html>
