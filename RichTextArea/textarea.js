@@ -2,6 +2,12 @@ const frameElement = document.querySelector('.richTextArea');
 const doc = frameElement.contentDocument;
 doc.body.contentEditable = true;
 
+const loadContent = () => {
+	doc.body.innerHTML = document.getElementById('inputText').value;
+};
+
+loadContent();
+
 document.getElementById('bold').addEventListener('click', (e) => {
 	e.preventDefault();
 	doc.execCommand('bold', false, null);
@@ -20,7 +26,13 @@ document.getElementById('underline').addEventListener('click', (e) => {
 document.getElementById('link').addEventListener('click', (e) => {
 	e.preventDefault();
 	let link = prompt('Paste link', 'http://');
-	doc.execCommand('createLink', false, null, link);
+	let sText = doc.getSelection();
+	// doc.execCommand('createLink', false, null, link);
+	doc.execCommand(
+		'insertHTML',
+		false,
+		'<a href="' + link + '" target="_blank" class="othera">' + sText + '</a>'
+	);
 });
 
 document.getElementById('unlink').addEventListener('click', (e) => {
@@ -93,4 +105,10 @@ document.getElementById('image-upload').addEventListener('click', (e) => {
 uploadContainer.addEventListener('click', (e) => {
 	if (e.target !== uploadContainer) return;
 	uploadContainer.style.display = 'none';
+});
+
+document.getElementById('other-form').addEventListener('submit', (e) => {
+	e.preventDefault();
+	document.getElementById('inputText').value = doc.body.innerHTML;
+	document.getElementById('other-form').submit();
 });
