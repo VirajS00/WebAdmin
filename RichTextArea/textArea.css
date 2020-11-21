@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+	--font-primary: 'Montserrat', sans-serif;
+	--clr-light: #ffffff;
+	--clr-dark: #000000;
+	--clr-hover: #0073bf;
+	--clr-primary: #008ce8;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -14,7 +24,7 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: #fff;
+	background: var(--clr-light);
 	box-shadow: 0 0 5px 2px #ccc;
 }
 
@@ -29,7 +39,7 @@ main {
 	display: none;
 }
 .richTextArea {
-	background-color: #fff;
+	background-color: var(--clr-light);
 	border: 1px solid #ccc;
 }
 
@@ -64,8 +74,18 @@ main {
 .update {
 	margin-top: 10px;
 	width: 500px;
-	padding: 5px;
+	padding: 10px;
 	font-size: 1rem;
+	background-color: var(--clr-primary);
+	border: 0;
+	border-radius: 0.3em;
+	font-size: 1rem;
+	font-family: var(--font-primary);
+	color: var(--clr-light);
+}
+
+.update:hover {
+	background-color: var(--clr-hover);
 }
 
 .btn-img {
@@ -81,14 +101,53 @@ main {
 	border-top: 1px solid #ccc;
 }
 
-.icon:first-of-type {
-	margin-left: 3px;
-}
-
 .icon:hover {
 	background-color: #eee;
 }
 
 .controls {
-	background-color: #0095b0;
+	background-image: linear-gradient(#eee, #ccc);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.file-upload-container {
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.6);
+	display: none;
+	place-items: center;
+}
+
+.form-upload-container {
+	height: 250px;
+	width: 300px;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.uploadLabelTA {
+	background-color: var(--clr-primary);
+	display: block;
+	padding: 15px;
+	font-family: var(--font-primary);
+	text-align: center;
+	color: var(--clr-light);
+	margin-top: 20px;
+	border-radius: 0.3em;
+}
+
+.uploadLabelTA:hover {
+	background-color: var(--clr-hover);
+}
+
+.inputfile {
+	transform: scale(0, 1);
 }

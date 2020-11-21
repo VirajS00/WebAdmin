@@ -50,3 +50,47 @@ codeContainer.addEventListener('click', (e) => {
 	if (e.target !== codeContainer) return;
 	codeContainer.style.display = 'none';
 });
+
+const uploadContainer = document.querySelector('.file-upload-container');
+
+const isFileImage = (file) => {
+	return file && file['type'].split('/')[0] === 'image';
+};
+
+document.getElementById('TAimg').addEventListener('change', async () => {
+	try {
+		document.querySelector(
+			'.uploadLabelTA'
+		).textContent = document.getElementById('TAimg').files[0].name;
+		const file = document.getElementById('TAimg').files[0];
+		if (!isFileImage(file)) {
+			alert('Please select an image');
+			document.querySelector('.uploadLabelTA').textContent = 'Upload File';
+			document.getElementById('TAimg').value = '';
+		} else {
+			const fd = new FormData();
+			fd.append('image', file);
+			const res = await fetch('uploadImage.php', { method: 'POST', body: fd });
+			const text = await res.text();
+			const img = document.createElement('img');
+			img.classList.add('OtherImg');
+			img.src = text;
+			img.setAttribute('height', '250px');
+			img.setAttribute('style', 'display: block; margin: 0 auto;');
+			doc.body.appendChild(img);
+			uploadContainer.style.display = 'none';
+		}
+	} catch (err) {
+		console.error(err);
+	}
+});
+
+document.getElementById('image-upload').addEventListener('click', (e) => {
+	e.preventDefault();
+	uploadContainer.style.display = 'grid';
+});
+
+uploadContainer.addEventListener('click', (e) => {
+	if (e.target !== uploadContainer) return;
+	uploadContainer.style.display = 'none';
+});
