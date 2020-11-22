@@ -3,7 +3,7 @@
     if($_POST) {
         $title = trim(addslashes($_POST['title']));
         $very_short_desc = trim(addslashes($_POST['very-short-desc']));
-        $short_desc = trim(addslashes($_POST['short-desc']));
+        $short_desc = trim(addslashes($_POST['short_desc']));
         $desc = trim(addslashes($_POST['desc']));
         $video_img = trim(addslashes($_POST['video-img']));
         $id = $_POST['id'];

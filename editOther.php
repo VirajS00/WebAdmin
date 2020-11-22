@@ -15,6 +15,18 @@
     <link rel="stylesheet" href="RichTextArea/textArea.css">
 </head>
 <body>
+	<div class="code-container">
+	<textarea id="code" class="code"></textarea>
+		<button class="update">Update</button>
+	</div>
+	<div class="file-upload-container">
+	<div class="form-upload-container">
+		<form>
+			<label for="TAimg" class="uploadLabelTA">Upload File</label>
+			<input type="file" id="TAimg" class="inputfile" />
+			</form>
+		</div>
+	</div>
 <main>
     <?php
         $q = 'SELECT * FROM other WHERE id = '.$_GET['id'];
@@ -22,41 +34,62 @@
         $data = mysqli_fetch_object($r);
     ?>
     <div class="form-container">
-        <form action="php/updateOther.php" method="post">
+        <form action="php/updateOther.php" method="post" id='other-form'>
             <input type="text" class="input textinput" name="title" value="<?php echo $data->title; ?>">
             <textarea name="very-short-desc" id="very-short-desc" class="input textarea"><?php echo $data->very_short_desc; ?></textarea>
-            <!-- <textarea name="short-desc" id="short-desc" class="input textarea"><?php echo $data->short_desc; ?></textarea>
-            <textarea name="desc" id="desc" class="input textarea"><?php echo $data->description; ?></textarea>
-            <textarea name="video-img" id="video-img" class="input textarea"><?php echo $data->video_img; ?></textarea> -->
-            <div class="textarea-container">
+            <textarea name="short_desc" id="short_desc" class="textarea input inputText" style="display: none"><?php echo $data->short_desc; ?></textarea>
+					<div class="textarea-container">
 						<div class="controls">
-							<button class="icon bold" id="bold"><b>B</b></button>
-							<button class="icon italic" id="italic"><i>i</i></button>
-							<button class="icon underline" id="underline"><u>U</u></button>
-							<button class="icon link" id="link">
+							<button class="icon bold"><b>B</b></button>
+							<button class="icon italic"><i>i</i></button>
+							<button class="icon underline"><u>U</u></button>
+							<button class="icon link">
 								<img src="RichTextArea/Assets/link.png" alt="link" class="btn-img" />
 							</button>
-							<button class="icon unlink" id="unlink">
+							<button class="icon unlink">
 								<img src="RichTextArea/Assets/unlink.png" alt="unlink" class="btn-img" />
 							</button>
-							<button class="icon image-upload" id="image-upload">
+						</div>
+						<iframe
+							src="about:blank"
+							contenteditable="true"
+							style="width: 100%; height: 200px"
+							name="iframe"
+							id="iframe"
+							class="richTextArea iframe"
+						></iframe>
+					</div>
+					<textarea name="desc" id="desc" class="textarea input inputText" style="display: none"><?php echo $data->description; ?></textarea>
+					<div class="textarea-container">
+						<div class="controls">
+							<button class="icon bold"><b>B</b></button>
+							<button class="icon italic"><i>i</i></button>
+							<button class="icon underline"><u>U</u></button>
+							<button class="icon link">
+								<img src="RichTextArea/Assets/link.png" alt="link" class="btn-img" />
+							</button>
+							<button class="icon unlink">
+								<img src="RichTextArea/Assets/unlink.png" alt="unlink" class="btn-img" />
+							</button>
+							<button class="icon image-upload">
 								<img src="RichTextArea/Assets/image.png" alt="image" class="btn-img" />
 							</button>
-							<button class="icon htmlcode" id="htmlcode">
+							<button class="icon htmlcode">
 								<img src="RichTextArea/Assets/code.png" alt="code" class="btn-img" />
 							</button>
 						</div>
 						<iframe
 							src="about:blank"
 							contenteditable="true"
-							style="width: 100%; height: 150px"
+							style="width: 100%; height: 300px"
 							name="iframe"
 							id="iframe"
-							class="richTextArea"
+							class="richTextArea iframe"
 						></iframe>
-                    </div>
-            <input type="hidden" value="<?php echo $_GET['id'] ?>" name="id">
-            <input type="submit" class="input button">
+					</div>
+				<textarea name="video-img" id="video-img" class="input textarea"><?php echo $data->video_img; ?></textarea>
+				<input type="hidden" value="<?php echo $_GET['id']; ?>" name="id" id="id">
+				<input type="submit" class="button input">
         </form>
     </div>
 </main>

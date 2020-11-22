@@ -23,29 +23,57 @@
 			<div id="form-container">
 				<form id="other-form" action="action.php" method="post">
 					<textarea
-						name="inputText"
-						id="inputText"
-						class="textarea input"
-						cols=""
-						rows=""
+						name="short_desc"
+						id="short_desc"
+						class="textarea input inputText"
+						style="display: none"
 					>
 <a class='othera' href='http://virajshukla.com'>Hello</a></textarea
 					>
 					<div class="textarea-container">
 						<div class="controls">
-							<button class="icon" id="bold"><b>B</b></button>
-							<button class="icon" id="italic"><i>i</i></button>
-							<button class="icon" id="underline"><u>U</u></button>
-							<button class="icon" id="link">
+							<button class="icon bold"><b>B</b></button>
+							<button class="icon italic"><i>i</i></button>
+							<button class="icon underline"><u>U</u></button>
+							<button class="icon link">
 								<img src="Assets/link.png" alt="link" class="btn-img" />
 							</button>
-							<button class="icon" id="unlink">
+							<button class="icon unlink">
 								<img src="Assets/unlink.png" alt="unlink" class="btn-img" />
 							</button>
-							<button class="icon" id="image-upload">
+						</div>
+						<iframe
+							src="about:blank"
+							contenteditable="true"
+							style="width: 100%; height: 200px"
+							name="iframe"
+							id="iframe"
+							class="richTextArea iframe"
+						></iframe>
+					</div>
+					<textarea
+						name="desc"
+						id="desc"
+						class="textarea input inputText"
+						style="display: none"
+					>
+<a class='othera' href='http://virajshukla.com'>Hello</a></textarea
+					>
+					<div class="textarea-container">
+						<div class="controls">
+							<button class="icon bold"><b>B</b></button>
+							<button class="icon italic"><i>i</i></button>
+							<button class="icon underline"><u>U</u></button>
+							<button class="icon link">
+								<img src="Assets/link.png" alt="link" class="btn-img" />
+							</button>
+							<button class="icon unlink">
+								<img src="Assets/unlink.png" alt="unlink" class="btn-img" />
+							</button>
+							<button class="icon image-upload">
 								<img src="Assets/image.png" alt="image" class="btn-img" />
 							</button>
-							<button class="icon" id="htmlcode">
+							<button class="icon htmlcode">
 								<img src="Assets/code.png" alt="code" class="btn-img" />
 							</button>
 						</div>
@@ -55,7 +83,7 @@
 							style="width: 100%; height: 300px"
 							name="iframe"
 							id="iframe"
-							class="richTextArea"
+							class="richTextArea iframe"
 						></iframe>
 					</div>
 					<input type="submit" />

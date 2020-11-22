@@ -1,48 +1,71 @@
-const frameElement = document.querySelector('.richTextArea');
-const doc = frameElement.contentDocument;
-doc.body.contentEditable = true;
+const frameElement = document.querySelectorAll('.richTextArea');
+let doc = [];
+frameElement.forEach((frame) => {
+	doc.push(frame.contentDocument);
+});
+
+const inputtext = [...document.querySelectorAll('.inputText')];
 
 const loadContent = () => {
-	doc.body.innerHTML = document.getElementById('inputText').value;
+	for (let i = 0; i < doc.length; i++) {
+		doc[i].body.innerHTML = inputtext[i].value;
+	}
 };
 
 loadContent();
 
-document.getElementById('bold').addEventListener('click', (e) => {
-	e.preventDefault();
-	doc.execCommand('bold', false, null);
+doc.forEach((docu) => {
+	docu.body.contentEditable = true;
+	document.querySelectorAll('.bold').forEach((button) => {
+		button.addEventListener('click', (e) => {
+			e.preventDefault();
+			docu.execCommand('bold', false, null);
+		});
+	});
+	document.querySelectorAll('.italic').forEach((button) => {
+		button.addEventListener('click', (e) => {
+			e.preventDefault();
+			docu.execCommand('italic', false, null);
+		});
+	});
+	document.querySelectorAll('.underline').forEach((button) => {
+		button.addEventListener('click', (e) => {
+			e.preventDefault();
+			docu.execCommand('underline', false, null);
+		});
+	});
+	document.querySelectorAll('.unlink').forEach((button) => {
+		button.addEventListener('click', (e) => {
+			e.preventDefault();
+			docu.execCommand('unlink', false, null);
+		});
+	});
 });
 
-document.getElementById('italic').addEventListener('click', (e) => {
-	e.preventDefault();
-	doc.execCommand('italic', false, null);
-});
+const link = [...document.querySelectorAll('.link')];
 
-document.getElementById('underline').addEventListener('click', (e) => {
-	e.preventDefault();
-	doc.execCommand('underline', false, null);
-});
-
-document.getElementById('link').addEventListener('click', (e) => {
-	e.preventDefault();
-	let link = prompt('Paste link', 'http://');
-	let sText = doc.getSelection();
-	// doc.execCommand('createLink', false, null, link);
-	doc.execCommand(
-		'insertHTML',
-		false,
-		'<a href="' + link + '" target="_blank" class="othera">' + sText + '</a>'
-	);
-});
-
-document.getElementById('unlink').addEventListener('click', (e) => {
-	e.preventDefault();
-	doc.execCommand('unlink', false, null);
-});
+for (let i = 0; i < link.length; i++) {
+	link[i].addEventListener('click', (e) => {
+		e.preventDefault();
+		let link = prompt('Paste link', 'http://');
+		let sText = doc[i].getSelection();
+		doc[i].execCommand(
+			'insertHTML',
+			false,
+			'<a href="' + link + '" target="_blank" class="othera">' + sText + '</a>'
+		);
+	});
+}
 
 const codeContainer = document.querySelector('.code-container');
+const codebut = document.querySelector('.htmlcode');
 
-document.getElementById('htmlcode').addEventListener('click', (e) => {
+codeContainer.addEventListener('click', (e) => {
+	if (e.target !== codeContainer) return;
+	codeContainer.style.display = 'none';
+});
+
+codebut.addEventListener('click', (e) => {
 	e.preventDefault();
 	codeContainer.style.display = 'flex';
 	document.querySelector('.update').addEventListener('click', (e) => {
@@ -51,19 +74,16 @@ document.getElementById('htmlcode').addEventListener('click', (e) => {
 		if (codeTA.value == '') {
 			codeContainer.style.display = 'none';
 		} else {
-			doc.execCommand('insertHTML', false, codeTA.value);
+			doc[1].execCommand('insertHTML', false, codeTA.value);
+
 			codeContainer.style.display = 'none';
 			codeTA.value = '';
 		}
 	});
 });
 
-codeContainer.addEventListener('click', (e) => {
-	if (e.target !== codeContainer) return;
-	codeContainer.style.display = 'none';
-});
-
 const uploadContainer = document.querySelector('.file-upload-container');
+const uploadBut = document.querySelector('.image-upload');
 
 const isFileImage = (file) => {
 	return file && file['type'].split('/')[0] === 'image';
@@ -82,14 +102,17 @@ document.getElementById('TAimg').addEventListener('change', async () => {
 		} else {
 			const fd = new FormData();
 			fd.append('image', file);
-			const res = await fetch('uploadImage.php', { method: 'POST', body: fd });
+			const res = await fetch('uploadImage.php', {
+				method: 'POST',
+				body: fd
+			});
 			const text = await res.text();
 			const img = document.createElement('img');
 			img.classList.add('OtherImg');
 			img.src = text;
 			img.setAttribute('height', '250px');
 			img.setAttribute('style', 'display: block; margin: 0 auto;');
-			doc.body.appendChild(img);
+			doc[1].body.appendChild(img);
 			uploadContainer.style.display = 'none';
 		}
 	} catch (err) {
@@ -97,7 +120,7 @@ document.getElementById('TAimg').addEventListener('change', async () => {
 	}
 });
 
-document.getElementById('image-upload').addEventListener('click', (e) => {
+uploadBut.addEventListener('click', (e) => {
 	e.preventDefault();
 	uploadContainer.style.display = 'grid';
 });
@@ -109,6 +132,9 @@ uploadContainer.addEventListener('click', (e) => {
 
 document.getElementById('other-form').addEventListener('submit', (e) => {
 	e.preventDefault();
-	document.getElementById('inputText').value = doc.body.innerHTML;
+	for (let i = 0; i < doc.length; i++) {
+		inputtext[i].value = '';
+		inputtext[i].value = doc[i].body.innerHTML;
+	}
 	document.getElementById('other-form').submit();
 });
