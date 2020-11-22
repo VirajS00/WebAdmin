@@ -60,7 +60,7 @@
 				height="30px"
 				width="30px"
             />
-            <h1 class="head">Other content</h1>
+            <h1 class="head">Other content <a href="addOther.php" class="add">+</a></h1>
 
             <table>
                 <thead>
