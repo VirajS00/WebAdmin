@@ -29,6 +29,19 @@
 	</div>
 <main>
     <div class="form-container">
+        <div class="image_uplaod_container">
+            <form id="img_small_upload_form">
+                <label for="img_small_upload" class="fileInputLabel">Choose cover Image<div class="inp-loader"></div></label>
+                <br>
+                <input type="file" id="img_small_upload" name="img_small_upload" class="inputfile" />
+            </form>
+        </div><br>
+        <div class="image_uplaod_container">
+            <form id="img_upload_form">
+                <label for="img_upload" class="fileInputLabel">Choose Large Image</label><br>
+                <input type="file" id="img_upload" name="img_upload" class="inputfile" />
+            </form>
+        </div><br>
         <form action="php/updateOther.php" method="post" id='other-form'>
             <input type="text" class="input textinput" name="title" value="" placeholder="Enter title">
             <textarea name="very-short-desc" id="very-short-desc" class="input textarea" placeholder="Enter very short description"></textarea>
@@ -82,11 +95,14 @@
 							class="richTextArea iframe"
 						></iframe>
 					</div>
-				<textarea name="video-img" id="video-img" class="input textarea" placeholder="Video Image"></textarea>
+                <textarea name="video-img" id="video-img" class="input textarea" placeholder="Video Image"></textarea>
+                <input type="hidden" value="" name="img_small">
+                <input type="hidden" value="" name="img_large">
 				<input type="submit" class="button input">
         </form>
     </div>
 </main>
 <script src="RichTextArea/textarea.js"></script>
+<script src="js/addOther.js"></script>
 </body>
 </html>
