@@ -27,8 +27,6 @@
 - [ ] Create page for adding to the "other content" segment
 - [x] Create page for editing the "other content" segment
 - [x] Create page for viewing and reordering the "other content" segment
-- [ ] Create page for updating About page
-- [ ] Create page for updating Contact page
 
 #### HTML & CSS
 
