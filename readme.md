@@ -30,6 +30,7 @@
 - [x] Create page for viewing and reordering the "other content" segment
 - [x] Create page for viewing platform list
 - [x] Create page for adding platforms platform list
+- [x] Create script for deleting platforms platform list
 - [ ] Create page for viewing and reordering the "other content" segment
 
 #### HTML & CSS

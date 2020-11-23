@@ -70,13 +70,14 @@
         <h1 class="head">Platforms <a href="addPlatform.php" class="add">+</a></h1>
             <section class="platforms-container">
             <?php
-                $q1 = 'SELECT * FROM platforms';
+                $q1 = 'SELECT * FROM platforms ORDER BY id DESC';
                 $r1 = mysqli_query($conn, $q1);
                 if($r1) {
                     while($row = mysqli_fetch_array($r1)){
                         echo "<div class='platform'>";
                         echo $row['img_code'];
                         echo "<h3 class='platform-name'>".$row['platform_name']."</h3>";
+                        echo "<form class='delForm' method='post' action='php/delPlatform.php'><input type='hidden' value='".$row['id']."' name='platform_id'><input type='hidden' name='platform_img_src' class='platform_img_src'><input type='submit' value='&times;' class='del-button'></form>";
                         echo '</div>';
                     }
                 } else {
@@ -89,6 +90,16 @@
         <script src="js/platform.js"></script>
         <script>
             changePaths();
+            document.querySelectorAll('.delForm').forEach((form) => {
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    if (confirm('are you sure you want to delete')) {
+                        form.submit();
+                    } else {
+                        return;
+                    }
+                });
+            });
         </script>
 	</body>
 </html>

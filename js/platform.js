@@ -1,9 +1,11 @@
 const changePaths = () => {
 	const platformImg = document.querySelectorAll('.platformimg');
-	platformImg.forEach((img) => {
+	const platform_img_src = [...document.querySelectorAll('.platform_img_src')];
+	platformImg.forEach((img, i) => {
 		const src = img.getAttribute('src');
 		const newSrc = '../' + src;
 		img.setAttribute('src', newSrc);
+		platform_img_src[i].value = src;
 	});
 };
 
@@ -58,3 +60,12 @@ document.getElementById('platforms-form').addEventListener('submit', (e) => {
 		document.getElementById('platforms-form').submit();
 	}
 });
+
+const delPlatform = (e) => {
+	e.preventDefault();
+	if (confirm('are you sure you want to delete')) {
+		form.submit();
+	} else {
+		return;
+	}
+};
