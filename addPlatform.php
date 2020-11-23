@@ -35,8 +35,8 @@
             </form>
         </div>
         <form action="php/addPlatform.php" method="post" id='platforms-form'>
-            <input type="text" class="input textinput" name="platform_name" value="" placeholder="Enter Platform Name">
-            <input type="text" class="input textinput" name="platform_link" placeholder="Enter Link"><br><br>
+            <input type="text" class="input textinput" name="platform_name" id="platform_name" value="" placeholder="Enter Platform Name">
+            <input type="text" class="input textinput" name="platform_link" id="platform_link" placeholder="Enter Link"><br><br>
             <input type="hidden" id="platform_img_url" name="platform_img_url">
 			<input type="submit" class="button input">
         </form>

@@ -48,3 +48,13 @@ fileinput.addEventListener('change', () => {
 		alert('please select a file');
 	}
 });
+
+document.getElementById('platforms-form').addEventListener('submit', (e) => {
+	e.preventDefault();
+	const platform_name = document.getElementById('platform_name');
+	if (platform_name.value == '') {
+		alert('please enter platform name');
+	} else {
+		document.getElementById('platforms-form').submit();
+	}
+});
