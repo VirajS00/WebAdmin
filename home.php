@@ -45,7 +45,7 @@
 					<canvas id="layanan"></canvas>
 				</div>
 				<div class="chart counter">
-					<h1 class="users">8</h1>
+					<h1 class="users"><?php echo file_get_contents("hits.txt"); ?></h1>
 					<p class="head-counter">Hits</p>
 				</div>
 				<div class="chart">
