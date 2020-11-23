@@ -164,6 +164,10 @@ table {
 	display: none;
 }
 
+.para {
+	font-family: var(--font-primary);
+}
+
 @keyframes loader_input {
 	0% {
 		transform: rotate(0deg);

@@ -60,9 +60,9 @@ img_upload.addEventListener('change', () => {
 				return res.text();
 			})
 			.then((text) => {
+				let filedetails = text.split('|');
 				if (filedetails[0] == 'success') {
 					console.log(text);
-					const filedetails = text.split('|');
 					labeltext[1].textContent = 'Large image upload complete';
 					labeltext[1].style.display = 'block';
 					loader[1].style.display = 'none';

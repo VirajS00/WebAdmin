@@ -95,6 +95,20 @@
                 <textarea name="video-img" id="video-img" class="input textarea" placeholder="Video Image"></textarea>
                 <input type="hidden" name="img_small" id="img_small">
                 <input type="hidden" name="img_large" id="img_large">
+				<p class='para' style='font-size: 1.2rem;'>Platform<br>
+				<?php
+					$q1 = 'SELECT * FROM platforms';
+					$r1 = mysqli_query($conn, $q1);
+					if($r1) {
+						while($row = mysqli_fetch_array($r1)){
+							echo "<label style='font-size: .8em;'><input type='checkbox' class='check' value='".$row['id']."' name='platform[]'>".$row['platform_name']."</label><br>";
+						}
+					} else {
+						echo "MySQL Error: ".mysqli_error($conn);
+					}
+				?>
+				</p>
+				<br>
 				<input type="submit" class="button input">
         </form>
     </div>
