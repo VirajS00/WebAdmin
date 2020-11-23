@@ -44,6 +44,10 @@
 				<div class="chart">
 					<canvas id="layanan"></canvas>
 				</div>
+				<div class="chart counter">
+					<h1 class="users">80</h1>
+					<p class="head-counter">Users</p>
+				</div>
 				<div class="chart">
 					<canvas id="layanan_subbagian"></canvas>
 				</div>
