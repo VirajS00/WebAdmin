@@ -81,7 +81,7 @@
                                     <td>".$row['title']."</td>
                                     <td><img src='../".$row['img_small']."' height='80px'></td>
                                     <td>".$row['very_short_desc']."</td>
-                                    <td><form method='post' action='php/delOther.php'><input type='hidden' value='".$row['id']."'><input type='submit' value='&times;' class='del-button'></form></td>
+                                    <td><form method='post' action='php/delOther.php' class='delForm'><input type='hidden' value='".$row['id']."' name='other_id'><input type='submit' value='&times;' class='del-button'></form></td>
                                     <td><a href='editOther.php?id=".$row['id']."' class='editlink'>edit</a></td>
                                 </tr>");
                         }
