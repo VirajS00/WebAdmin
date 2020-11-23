@@ -38,21 +38,23 @@
 				<ul class="nav-ul">
 					<li class="nav-li"><h2 class="head-menu">Menu</h2></li>
 					<li class="nav-li"><a href="home.php" class="link-menu">Home</a></li>
-					<li class="nav-li"><a href="photos.php" class="link-menu act">Photos</a>
+					<li class="nav-li"><a href="photos.php" class="link-menu">Photos</a>
 						<ul class="subnav">
-							<li class="subnavli"><a href="photos.php?categ_id=1" class="link-menu <?php if (isset($_GET['categ_id'])){ if($_GET['categ_id'] == 1){echo "act";}} ?>">Abstract</a></li>
-							<li class="subnavli"><a href="photos.php?categ_id=2" class="link-menu <?php if (isset($_GET['categ_id'])){ if($_GET['categ_id'] == 2){echo "act";}} ?>">Nature</a></li>
-							<li class="subnavli"><a href="photos.php?categ_id=3" class="link-menu <?php if (isset($_GET['categ_id'])){ if($_GET['categ_id'] == 3){echo "act";}} ?>">Macro</a></li>
+							<li class="subnavli"><a href="photos.php?categ_id=1" class="link-menu">Abstract</a></li>
+							<li class="subnavli"><a href="photos.php?categ_id=2" class="link-menu">Nature</a></li>
+							<li class="subnavli"><a href="photos.php?categ_id=3" class="link-menu">Macro</a></li>
 						</ul>
 					</li>
 					<li class="nav-li">
-						<a href="other.php" class="link-menu">Other content</a>
+						<a href="other.php" class="link-menu act">Other content</a>
 						<ul class="subnav">
-							<li class="subnavli"><a href="platforms.php" class="link-menu">Platforms</a></li>
+							<li class="subnavli"><a href="platforms.php" class="link-menu act">Platforms</a></li>
 						</ul>
 					</li>
 					<li class="nav-li"><a href="videos.php" class="link-menu">Videos</a></li>
-					<li class="nav-li"><a href="#" class="link-menu">Feedback</a></li>
+					<li class="nav-li">
+						<a href="feedback.php" class="link-menu">Feedback</a>
+					</li>
 					<li class="nav-li">
 						<a href="php/logout.php" class="link-menu">Logout</a>
 					</li>

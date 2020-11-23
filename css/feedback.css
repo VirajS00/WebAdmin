@@ -1,0 +1,50 @@
+:root {
+	--font-primary: 'Montserrat', sans-serif;
+	--clr-light: #ffffff;
+	--clr-dark: #000000;
+	--clr-hover: #0073bf;
+	--clr-primary: #008ce8;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+main {
+	font-family: var(--font-primary);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+p,
+h2,
+div {
+	padding: 0;
+	margin: 0;
+}
+
+.feedback-card {
+	width: 90vw;
+	max-width: 400px;
+	border-radius: 0.3em;
+	padding: 20px 25px;
+	box-shadow: 0 0 5px 2px #ccc;
+	margin-bottom: 2.2rem;
+}
+
+h2.name {
+	color: var(--clr-primary);
+	padding-bottom: 0.1em;
+}
+
+.email {
+	font-size: 0.9em;
+	color: #999;
+	padding-bottom: 0.7em;
+}
+
+.message {
+	word-wrap: break-word;
+}

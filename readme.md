@@ -23,7 +23,7 @@
 - [x] Create image uploading script
 - [x] Create script for deleting images
 - [x] Create page/script for updating image caption and category
-- [ ] Create a script for receiving messages/user feedback
+- [x] Create a script for receiving messages/user feedback
 - [x] Create page for adding to the "other content" segment
 - [x] Create page for editing the "other content" segment
 - [x] Create page for deleting the "other content" segment
