@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="RichTextArea/textArea.css">
 </head>
 <body>
+	<a href="javascript: history.go(-1);" class="back"><< Back</a>
 	<div class="code-container">
 	<textarea id="code" class="code"></textarea>
 		<button class="update">Update</button>

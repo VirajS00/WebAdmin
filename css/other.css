@@ -168,6 +168,19 @@ table {
 	font-family: var(--font-primary);
 }
 
+.back {
+	position: fixed;
+	top: 30px;
+	left: 30px;
+	text-decoration: none;
+	border: 2px solid #333;
+	padding: 10px 20px;
+	color: #333;
+	background-color: #cecece;
+	font-family: var(--font-primary);
+	border-radius: 0.3em;
+}
+
 @keyframes loader_input {
 	0% {
 		transform: rotate(0deg);

@@ -28,6 +28,7 @@
 		</div>
 	</div>
 <main>
+	<a href="javascript: history.go(-1);" class="back"><< Back</a>
     <div class="form-container">
         <div class="image_uplaod_container">
             <form id="img_small_upload_form">
