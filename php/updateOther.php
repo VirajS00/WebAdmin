@@ -7,8 +7,10 @@
         $desc = trim(addslashes($_POST['desc']));
         $video_img = trim(addslashes($_POST['video-img']));
         $id = $_POST['id'];
+        $platform = $_POST['platform'];
+        $platforms = implode(',', $platform);
 
-        $q = "UPDATE other SET title = '$title', very_short_desc = '$very_short_desc', short_desc = '$short_desc', description = '$desc', video_img = '$video_img' WHERE id = $id";
+        $q = "UPDATE other SET title = '$title', very_short_desc = '$very_short_desc', short_desc = '$short_desc', description = '$desc', video_img = '$video_img', platform = '$platforms' WHERE id = $id";
         $r = mysqli_query($conn, $q);
         if($r) {
             header('location: ../other.php');

@@ -90,6 +90,31 @@
 					</div>
 				<textarea name="video-img" id="video-img" class="input textarea"><?php echo $data->video_img; ?></textarea>
 				<input type="hidden" value="<?php echo $_GET['id']; ?>" name="id" id="id">
+				<h2 class="head">Platforms</h2>
+				<?php
+					$q1 = 'SELECT platform FROM other WHERE id = '.$_GET['id'];
+					$r1 = mysqli_query($conn, $q1);
+					if($r1) {
+						$data = mysqli_fetch_object($r1);
+						$platfroms = $data->platform;
+						$platform_arr = explode(',', $platfroms);
+						$q2 = 'SELECT id, platform_name FROM platforms';
+						$r2 = mysqli_query($conn, $q2);
+						if($r2) {
+							while($row = mysqli_fetch_array($r2)) {
+								if(in_array($row['id'], $platform_arr)) {
+									echo "<label><input type='checkbox' name='platform[]' value='".$row['id']."' checked>".$row['platform_name']."</label><br>";
+								} else {
+									echo "<label><input type='checkbox' name='platform[]' value='".$row['id']."'>".$row['platform_name']."</label><br>";
+								}
+							}
+						} else {
+							echo 'MySQL Error: ' . mysqli_error($conn);
+						}
+					} else {
+						echo 'MySQL Error: '.mysqli_error($conn);
+					}
+				?><br>
 				<input type="submit" class="button input">
         </form>
     </div>

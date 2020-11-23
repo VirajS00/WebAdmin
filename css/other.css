@@ -15,6 +15,7 @@
 main {
 	display: grid;
 	place-items: center;
+	font-family: var(--font-primary);
 }
 
 h1.head {
