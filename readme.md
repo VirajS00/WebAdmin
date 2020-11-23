@@ -28,6 +28,8 @@
 - [x] Create page for editing the "other content" segment
 - [x] Create page for deleting the "other content" segment
 - [x] Create page for viewing and reordering the "other content" segment
+- [x] Create page for viewing platform list
+- [ ] Create page for viewing and reordering the "other content" segment
 
 #### HTML & CSS
 
