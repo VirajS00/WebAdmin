@@ -10,7 +10,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Admin - Photos <?php if(isset($category)) { echo " - $category"; } ?></title>
+		<title>Admin - Platforms</title>
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/other.css" />
         <style>
@@ -87,5 +87,8 @@
         </main>
         <script src="js/nav.js"></script>
         <script src="js/platform.js"></script>
+        <script>
+            changePaths();
+        </script>
 	</body>
 </html>
