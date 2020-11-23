@@ -92,5 +92,14 @@
             $country = $data['geoplugin_countryName'];
             return $country;
         }
+        
+        public function countHits() {
+            session_start();
+            if(empty($_SESSION['visited'])){
+                $counter = file_get_contents('./hits.txt') + 1;
+                file_put_contents('./hits.txt', $counter);
+            }
+            $_SESSION['visited'] = true;
+        }
     }
 ?>

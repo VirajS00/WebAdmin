@@ -18,7 +18,7 @@
 
 - [x] Add Login
 - [x] Create script for getting visitor tracking data
-- [ ] Create visitor counter
+- [x] Create visitor counter
 - [x] Create page for displaying photos in database
 - [x] Create image uploading script
 - [x] Create script for deleting images
@@ -31,7 +31,7 @@
 - [x] Create page for viewing platform list
 - [x] Create page for adding platforms platform list
 - [x] Create script for deleting platforms platform list
-- [ ] Create page for viewing and reordering the "other content" segment
+- [x] Create page for viewing and reordering the "other content" segment
 
 #### HTML & CSS
 
