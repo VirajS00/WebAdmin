@@ -25,7 +25,11 @@
 							<li class="subnavli"><a href="photos.php?categ_id=3" class="link-menu <?php if (isset($_GET['categ_id'])){ if($_GET['categ_id'] == 3){echo "act";}} ?>">Macro</a></li>
 						</ul>
 					</li>
-					<li class="nav-li"><a href="other.php" class="link-menu">Other content</a></li>
+					<li class="nav-li"><a href="other.php" class="link-menu">Other content</a>
+						<ul class="subnav">
+							<li class="subnavli"><a href="platforms.php" class="link-menu">Platforms</a></li>
+						</ul>
+					</li>
 					<li class="nav-li"><a href="videos.php" class="link-menu">Videos</a></li>
 					<li class="nav-li"><a href="#" class="link-menu">Feedback</a></li>
 					<li class="nav-li"><a href="php/logout.php" class="link-menu">Logout</a></li>

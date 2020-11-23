@@ -41,6 +41,9 @@
 					</li>
 					<li class="nav-li">
 						<a href="other.php" class="link-menu act">Other content</a>
+                        <ul class="subnav">
+							<li class="subnavli"><a href="platforms.php" class="link-menu">Platforms</a></li>
+						</ul>
 					</li>
 					<li class="nav-li">
 						<a href="videos.php" class="link-menu">Videos</a>

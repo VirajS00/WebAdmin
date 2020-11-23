@@ -182,6 +182,28 @@ table {
 	border-radius: 0.3em;
 }
 
+.platforms-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	max-width: 500px;
+	width: 100%;
+	height: 100%;
+}
+
+.platform {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	border-top: 2px solid #ccc;
+	/* border-bottom: 2px solid #ccc; */
+	padding: 20px 0;
+	place-items: center;
+	width: 100%;
+	max-width: 500px;
+}
+
 @keyframes loader_input {
 	0% {
 		transform: rotate(0deg);
