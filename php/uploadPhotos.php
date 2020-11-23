@@ -25,7 +25,7 @@
             }
 
             if(empty($errors)) {
-                $images = resizeImageToWidthJPGPNG(800, $file, '../pics/');
+                $images = resizeImageToWidthJPGPNG(800, $file, '../../pics/');
                 if (!$images) {
                     $status->status = 'error';
                     $status->error = 'error uploading image';

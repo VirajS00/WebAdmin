@@ -84,7 +84,11 @@
 							while($row = mysqli_fetch_array($r)) {
 								echo "<tr draggable='true' class='draggable' data-position='".$row['sort']."' data-index='".$row['img_id']."'>";
 								echo "<td>".$row['caption']."</td>";
-								echo "<td><img src='".$row['url_small']."' height='80px' class='img' loading='lazy'></td>";
+								if(substr( $row['url_small'], 0, 5 ) === "pics/") {
+									echo "<td><img src='../".$row['url_small']."' height='80px' class='img' loading='lazy'></td>";
+								} else {
+									echo "<td><img src='".$row['url_small']."' height='80px' class='img' loading='lazy'></td>";
+								}
 								echo "<td>".$row['category']."</td>";
 								echo "<td><form action='php/delPhoto.php' method='post' class='delForm'><input type='hidden' name='img_id' id='img_id' value='".$row['img_id']."' />
 										<input type='hidden' value='".$row['categ_id']."' name='categ_id' id='categ_id'>

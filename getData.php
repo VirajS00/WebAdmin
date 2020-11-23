@@ -10,12 +10,6 @@
     $pageName = $userData->getPageName();
     $country = $userData->getCountry();
     $counter = $userData->countHits();
-    
-    echo $device . "<br>";
-    echo $browser ."<br>";
-    echo $os . "<br>";
-    echo $pageName . "<br>";
-    echo $country . "<br>";
 
     $q = "INSERT INTO userData (id, DeviceType, Browser, OS, Page, Country) VALUES (NULL, '$device', '$browser', '$os', '$pageName', '$country')";
     $res = mysqli_query($conn, $q);
