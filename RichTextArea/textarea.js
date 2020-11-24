@@ -103,6 +103,7 @@ document.getElementById('TAimg').addEventListener('change', async () => {
 			const fd = new FormData();
 			fd.append('image', file);
 			document.getElementById('TAimgLoader').style.display = 'block';
+			document.getElementById('TAimgLabel').style.display = 'none';
 			const res = await fetch('RichTextArea/uploadImage.php', {
 				method: 'POST',
 				body: fd
@@ -114,8 +115,10 @@ document.getElementById('TAimg').addEventListener('change', async () => {
 			img.setAttribute('height', '250px');
 			img.setAttribute('style', 'display: block; margin: 0 auto;');
 			doc[1].body.appendChild(img);
-			document.getElementById('TAimgLabel').textContent = 'Image Uploaded';
+			document.getElementById('TAimgLabel').textContent = 'Upload File';
 			document.getElementById('TAimgLoader').style.display = 'none';
+			document.getElementById('TAimgLabel').style.display = '';
+			document.getElementById('TAimg').value = '';
 			uploadContainer.style.display = 'none';
 		}
 	} catch (err) {

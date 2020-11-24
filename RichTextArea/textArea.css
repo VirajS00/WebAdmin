@@ -133,7 +133,10 @@ main {
 
 .uploadLabelTA {
 	background-color: var(--clr-primary);
-	display: block;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	padding: 15px;
 	font-family: var(--font-primary);
 	text-align: center;
