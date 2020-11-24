@@ -102,7 +102,7 @@ document.getElementById('TAimg').addEventListener('change', async () => {
 		} else {
 			const fd = new FormData();
 			fd.append('image', file);
-			const res = await fetch('uploadImage.php', {
+			const res = await fetch('RichTextArea/uploadImage.php', {
 				method: 'POST',
 				body: fd
 			});
