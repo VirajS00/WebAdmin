@@ -23,8 +23,8 @@
                     echo "MySQL Error: ".mysqli_error($conn);
                 }
             } else {
-                if(file_exists('../'.$img_path)) {
-                    if(!unlink('../'.$img_path)) {
+                if(file_exists('../../'.$img_path)) {
+                    if(!unlink('../../'.$img_path)) {
                         echo "Coukd not delete file";
                     } else {
                         $q1 = 'DELETE FROM images WHERE img_id = '.$img_id;
