@@ -22,7 +22,7 @@
 	<div class="file-upload-container">
 	<div class="form-upload-container">
 		<form>
-			<label for="TAimg" class="uploadLabelTA">Upload File</label>
+			<label for="TAimg" class="uploadLabelTA"><span class="labelcontent" id="TAimgLabel">Choose cover Image</span><div class="inp-loader" id="TAimgLoader"></div></label>
 			<input type="file" id="TAimg" class="inputfile" />
 			</form>
 		</div>

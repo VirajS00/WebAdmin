@@ -91,9 +91,9 @@ const isFileImage = (file) => {
 
 document.getElementById('TAimg').addEventListener('change', async () => {
 	try {
-		document.querySelector(
-			'.uploadLabelTA'
-		).textContent = document.getElementById('TAimg').files[0].name;
+		document.getElementById('TAimgLabel').textContent = document.getElementById(
+			'TAimg'
+		).files[0].name;
 		const file = document.getElementById('TAimg').files[0];
 		if (!isFileImage(file)) {
 			alert('Please select an image');
@@ -102,6 +102,7 @@ document.getElementById('TAimg').addEventListener('change', async () => {
 		} else {
 			const fd = new FormData();
 			fd.append('image', file);
+			document.getElementById('TAimgLoader').style.display = 'block';
 			const res = await fetch('RichTextArea/uploadImage.php', {
 				method: 'POST',
 				body: fd
@@ -113,6 +114,8 @@ document.getElementById('TAimg').addEventListener('change', async () => {
 			img.setAttribute('height', '250px');
 			img.setAttribute('style', 'display: block; margin: 0 auto;');
 			doc[1].body.appendChild(img);
+			document.getElementById('TAimgLabel').textContent = 'Image Uploaded';
+			document.getElementById('TAimgLoader').style.display = 'none';
 			uploadContainer.style.display = 'none';
 		}
 	} catch (err) {
