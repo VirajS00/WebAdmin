@@ -13,6 +13,11 @@
 		<title>Admin - Platforms</title>
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/feedback.css" />
+		<style>
+			.loader {
+				display: none;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="loader-container">
@@ -65,22 +70,27 @@
 				height="30px"
 				width="30px"
 			/>
-			<?php
-				$q1 = 'SELECT name, email, message FROM feedback ORDER BY id DESC';
-				$r1 = mysqli_query($conn, $q1);
-				if($r1) {
-					while($row = mysqli_fetch_array($r1)) {
-						echo '<div class="feedback-card">
-							<h2 class="name">'.$row['name'].'</h2>
-							<p class="email">'.$row['email'].'</p>
-							<p class="message">'.$row['message'].'</p>
-						</div>';
+			<div class="feedback-container">
+				<div class="loader"></div>
+				<?php
+					$q1 = 'SELECT id, name, email, message FROM feedback ORDER BY id DESC';
+					$r1 = mysqli_query($conn, $q1);
+					if($r1) {
+						while($row = mysqli_fetch_array($r1)) {
+							echo '<div class="feedback-card">
+								<a class="delete-cross" href="javascript:void(0);" data-index="'.$row['id'].'">&times;</a>
+								<h2 class="name">'.$row['name'].'</h2>
+								<p class="email">'.$row['email'].'</p>
+								<p class="message">'.$row['message'].'</p>
+							</div>';
+						}
+					} else {
+						echo "MySQL Error: ".mysqli_error($conn);
 					}
-				} else {
-					echo "MySQL Error: ".mysqli_error($conn);
-				}
-			?>
+				?>
+			</div>
 		</main>
 		<script src="js/nav.js"></script>
+		<script src="js/feedback.js"></script>
 	</body>
 </html>
