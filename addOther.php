@@ -83,6 +83,9 @@
 							<button class="icon htmlcode">
 								<img src="RichTextArea/Assets/code.png" alt="code" class="btn-img" />
 							</button>
+							<button class="icon codeblock">
+								<img src="RichTextArea/Assets/code1.png" alt="code" class="btn-img" />
+							</button>
 						</div>
 						<iframe
 							src="about:blank"
