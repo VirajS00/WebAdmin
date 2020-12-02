@@ -136,6 +136,27 @@ uploadContainer.addEventListener('click', (e) => {
 	uploadContainer.style.display = 'none';
 });
 
+const codeBlockBut = document.querySelector('.codeblock');
+
+codeBlockBut.addEventListener('click', (e) => {
+	e.preventDefault();
+	let sText = doc[1].getSelection();
+	if (sText == '') {
+		alert('please select text to convert to code');
+	} else {
+		const language = prompt('Enter programming language');
+		if (language == '') {
+			alert('please enter language');
+		} else {
+			doc[1].execCommand(
+				'insertHTML',
+				false,
+				'<code class="language-' + language + '">' + sText + '</code>'
+			);
+		}
+	}
+});
+
 document.getElementById('other-form').addEventListener('submit', (e) => {
 	e.preventDefault();
 	for (let i = 0; i < doc.length; i++) {
