@@ -1,5 +1,7 @@
 # Website admin
 
+A demo of this project can be seen in this Youtube [video](https://www.youtube.com/watch?v=x9haKLBGqYA).
+
 ### This project will include:
 
 - getting user browser, desktop/mobile and user country for analysis of my website.
@@ -38,10 +40,6 @@
 - [x] Add nav menu
 - [x] Add basic styles
 - [x] Style table for displaying content
-
-###
-
-A demo of this project can be seen in this Youtube [video](https://www.youtube.com/watch?v=x9haKLBGqYA).
 
 ###
 
