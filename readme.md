@@ -2,7 +2,7 @@
 
 A demo of this project can be seen in this Youtube [video](https://www.youtube.com/watch?v=x9haKLBGqYA).
 
-### This project will include:
+### This project includes:
 
 - getting user browser, desktop/mobile and user country for analysis of my website.
 - A basic CMS for my website including adding removing photos, and other content on the site.
