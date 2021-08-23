@@ -86,7 +86,7 @@
 						echo "<td><form action='php/delPhoto.php' method='post' class='delForm'><input type='hidden' name='resource_id' id='resource_id' value='".$row['id']."' />
 								<input type='hidden' value='".$row['category']."' name='category' id='category'>
 							<input type='submit' value='&times;' class='del-button' /></form></td>";
-						echo "<td><a href='editResource.php?img_id=".$row['id']."' class='editlink'>edit</a></td>";
+						echo "<td><a href='editResource.php?id=".$row['id']."' class='editlink'>edit</a></td>";
 						echo "</tr>";
 					}
 				?>
