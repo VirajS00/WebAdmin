@@ -27,6 +27,7 @@ const form = document.querySelector('#resource-form');
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	const resourceName = document.querySelector('#resource_name');
+	const resourceType = document.querySelector('#resource_type');
 	const shortDesc = document.querySelector('#short_desc');
 	const category = document.querySelector('#category');
 	const linkNames = [...document.querySelectorAll('.link_name')];
@@ -49,6 +50,10 @@ form.addEventListener('submit', (e) => {
 		errors.push('please enter resource name');
 	}
 
+	if (resourceType.value == '') {
+		errors.push('please enter resource type');
+	}
+
 	if (shortDesc.value == '') {
 		errors.push('please enter short desc');
 	}
@@ -60,6 +65,7 @@ form.addEventListener('submit', (e) => {
 	if (errors.length === 0) {
 		const fd = new FormData();
 		fd.append('resource_name', resourceName.value);
+		fd.append('resource_type', resourceType.value);
 		fd.append('short_desc', shortDesc.value);
 		fd.append('category', category.value);
 		fd.append('links_data', JSON.stringify(linksData));
@@ -68,9 +74,9 @@ form.addEventListener('submit', (e) => {
 			method: 'POST',
 			body: fd
 		})
-			.then((res) => res.text())
-			.then((data) => {
-				console.log(data);
+			.then((res) => res.json())
+			.then((json) => {
+				console.log(json);
 			});
 	} else {
 		console.log(errors);

@@ -79,6 +79,17 @@
 						"
 						placeholder="Resource name"
 					/>
+					<input
+						type="text"
+						class="input"
+						id="resource_type"
+						style="
+							border: 1px solid #ccc;
+							border-radius: 0.3em;
+							font-size: 1rem;
+						"
+						placeholder="Resource type"
+					/>
 					<textarea
 						id="short_desc"
 						class="input textarea"
