@@ -10,6 +10,11 @@
 			* {
 				box-sizing: border-box;
 			}
+
+			body {
+				font-family: 'Montserrat', sans-serif;
+			}
+
 			.form-container {
 				height: fit-content;
 				font-family: 'Montserrat', sans-serif;
@@ -57,11 +62,39 @@
 				padding: 0.3em 0.5em;
 				font-family: 'Montserrat', sans-serif;
 			}
+
+			.error-container {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(0, 0, 0, 0.7);
+				z-index: 1000;
+				justify-content: center;
+				align-items: center;
+				color: rgb(101, 0, 0);
+				display: none;
+			}
+
+			.errors {
+				background-color: #ffa0a0;
+				padding: 4em;
+				outline: 1px dashed red;
+				outline-offset: -1rem;
+				border-radius: 1em;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="loader-container">
 			<div class="loader"></div>
+		</div>
+		<div class="error-container">
+			<div class="errors">
+				<h2>Errors:</h2>
+				<ol></ol>
+			</div>
 		</div>
 		<main>
 			<a href="javascript: history.go(-1);" class="back"><< Back</a>

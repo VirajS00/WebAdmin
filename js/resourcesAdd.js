@@ -24,6 +24,8 @@ addFeildBtn.addEventListener('click', () => {
 
 const form = document.querySelector('#resource-form');
 
+const error_container = document.querySelector('.error-container');
+
 form.addEventListener('submit', (e) => {
 	e.preventDefault();
 	const resourceName = document.querySelector('#resource_name');
@@ -79,6 +81,17 @@ form.addEventListener('submit', (e) => {
 				console.log(json);
 			});
 	} else {
-		console.log(errors);
+		error_container.style.display = 'flex';
+		errors.forEach((error) => {
+			let li = document.createElement('li');
+			li.textContent = error;
+			document.querySelector('.error-container > .errors > ol').appendChild(li);
+		});
 	}
+});
+
+error_container.addEventListener('click', (e) => {
+	if (e.target !== error_container) return;
+	error_container.style.display = 'none';
+	document.querySelector('.error-container > .errors > ol').innerHTML = '';
 });
