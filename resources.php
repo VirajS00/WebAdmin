@@ -54,7 +54,7 @@
                 height="30px"
                 width="30px"
             />
-            <h1 class="head">Resources <a href="addPlatform.php" class="add">+</a></h1>
+            <h1 class="head">Resources <a href="addResource.php" class="add">+</a></h1>
             <table class='draggable-container'>
 				<thead>
 				<tr>
@@ -79,7 +79,7 @@
 						echo "<td>".$row['type']."</td>";
                         echo "<td>";
                         foreach($links as $link) {
-                            echo "<a class='editlink' target='_blank' href='".$link['link']."'>".$link['link_type']."</a>, ";
+                            echo "<a class='editlink' target='_blank' href='".$link['url']."'>".$link['link_type']."</a>, ";
                         }
                         echo "</td>";
 						echo "<td>".$row['category']."</td>";
