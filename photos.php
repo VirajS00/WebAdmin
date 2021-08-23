@@ -48,6 +48,9 @@
 						<a href="feedback.php" class="link-menu">Feedback</a>
 					</li>
 					<li class="nav-li">
+						<a href="resources.php" class="link-menu">Resources</a>
+					</li>
+					<li class="nav-li">
 						<a href="php/logout.php" class="link-menu">Logout</a>
 					</li>
 				</ul>

@@ -99,6 +99,8 @@
                 <textarea name="video-img" id="video-img" class="input textarea" placeholder="Video Image"></textarea>
                 <input type="hidden" name="img_small" id="img_small">
                 <input type="hidden" name="img_large" id="img_large">
+				<input type="text" class="input textinput" name="GitLink" value="" placeholder="GitHub link">
+				<input type="text" class="input textinput" name="ProjectLink" value="" placeholder="Project link">
 				<p class='para' style='font-size: 1.2rem;'>Platform<br>
 				<?php
 					$q1 = 'SELECT * FROM platforms';

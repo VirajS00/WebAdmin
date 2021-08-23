@@ -92,6 +92,8 @@
 						></iframe>
 					</div>
 				<textarea name="video-img" id="video-img" class="input textarea"><?php echo $data->video_img; ?></textarea>
+				<input type="text" class="input textinput" name="GitLink" value="<?php echo $data->git_link; ?>" placeholder="GitHub link">
+				<input type="text" class="input textinput" name="ProjectLink" value="<?php echo $data->project_link; ?>" placeholder="Project link">
 				<input type="hidden" value="<?php echo $_GET['id']; ?>" name="id" id="id">
 				<h2 class="head">Platforms</h2>
 				<?php

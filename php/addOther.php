@@ -9,9 +9,11 @@
         $img_small = $_POST['img_small'];
         $img_large = $_POST['img_large'];
         $platform = $_POST['platform'];
+        $GitLink = $_POST['GitLink'];
+        $ProjectLink = $_POST['ProjectLink'];
         $platforms = implode(',', $platform);
 
-        $q = "INSERT INTO other (id, title, very_short_desc, short_desc, description, video_img, platform, img_small, img_large, sort) VALUES(NULL, '$title', '$very_short_desc', '$short_desc', '$desc', '$video_img', '$platforms', 'otherImages/$img_small', 'otherImages/$img_large', 0)";
+        $q = "INSERT INTO other (id, title, very_short_desc, short_desc, description, video_img, platform, img_small, img_large, git_link, project_link, sort) VALUES(NULL, '$title', '$very_short_desc', '$short_desc', '$desc', '$video_img', '$platforms', 'otherImages/$img_small', 'otherImages/$img_large', '$GitLink', '$ProjectLink', 0)";
         $r = mysqli_query($conn, $q);
         if($r) {
             header('location: ../other.php');
