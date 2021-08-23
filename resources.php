@@ -83,8 +83,8 @@
                         }
                         echo "</td>";
 						echo "<td>".$row['category']."</td>";
-						echo "<td><form action='php/delPhoto.php' method='post' class='delForm'><input type='hidden' name='resource_id' id='resource_id' value='".$row['id']."' />
-								<input type='hidden' value='".$row['category']."' name='category' id='category'>
+						echo "<td><form action='php/delResource.php' method='post' class='delForm'>
+                            <input type='hidden' id='resource_id' name='resource_id' value='".$row['id']."' />
 							<input type='submit' value='&times;' class='del-button' /></form></td>";
 						echo "<td><a href='editResource.php?id=".$row['id']."' class='editlink'>edit</a></td>";
 						echo "</tr>";
@@ -94,5 +94,6 @@
 		</table>
         </main>
         <script src="js/nav.js"></script>
+        <script src="js/resources.js"></script>
 </body>
 </html>
