@@ -19,7 +19,7 @@
         if(mysqli_query($conn, $q)) {
             $response = [
                 "status" => 1,
-                "message" => "Updated Sucessfully, <a ></a>"
+                "message" => "Updated Sucessfully"
             ];
         } else {
             $response = [

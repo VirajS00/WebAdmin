@@ -4,6 +4,7 @@
 		header('location: index.php');
     }
     include('php/connect.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +42,10 @@
 					</li>
                     <li class="nav-li">
 						<a href="resources.php" class="link-menu act">Resources</a>
+						<ul class="subnav">
+							<li class="subnavli"><a href="resources.php?category=CD" class="link-menu <?php if(isset($_GET['category'])) { if($_GET['category'] == 'CD') { echo "act"; } } ?>">Coding and Design</a></li>
+							<li class="subnavli"><a href="resources.php?category=FM" class="link-menu <?php if(isset($_GET['category'])) { if($_GET['category'] == 'FM') { echo "act"; } } ?>">Photo and Film</a></li>
+						</ul>
 					</li>
 					<li class="nav-li"><a href="php/logout.php" class="link-menu">Logout</a></li>
 				</ul>
@@ -69,7 +74,11 @@
 				</thead>
 				<tbody>
 				<?php
-					$q = 'SELECT * FROM resources ORDER BY sort';
+					if(isset($_GET['category'])) {
+						$q = "SELECT * FROM resources WHERE category = '".$_GET['category']."' ORDER BY sort";
+					} else {
+						$q = 'SELECT * FROM resources ORDER BY sort';
+					}
 					$r = mysqli_query($conn, $q);
 					while($row = mysqli_fetch_array($r)) {
                         $links = json_decode($row['links'], true);
