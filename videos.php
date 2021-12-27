@@ -3,6 +3,18 @@
 	if(!isset($_SESSION['user_id'])){
 		header('location: index.php');
 	}
+
+
+	function sortArrayByKey(array &$array, array $orderArray) {
+
+		$ordered = [];
+		for($i = 0; $i < count($orderArray); $i++) {
+			$ordered[$orderArray[$i]] = $array[$orderArray[$i]];
+		}
+
+		return $ordered;
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,9 +23,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Videos</title>
 		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/video.css?v=1" />
+		<link rel="stylesheet" href="css/video.css?v=2" />
 	</head>
 	<body>
+		<div class="updated">Updated</div>
 		<div class="nav-container">
 			<nav>
 				<ul class="nav-ul">
@@ -70,8 +83,8 @@
 			</h1>
 			<?php
 				include('php/connect.php');
-				// $key = YOUR_KEY_HERE;
-				// $token = YOUR_TOKEN_HERE;
+				$key = API_KEY_HERE;
+                $token = ACCESS_TOKEN_HERE;
 				$url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=PLNUNNqPwkQe-67Wlv8WkoK7fZO96I07wf&access_token=$token&key=$key";
 				$client = curl_init($url);
 				curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
@@ -90,7 +103,17 @@
 
 				if($r) {
 					$a = 0;
+					$roles = [];
+					$film_ids_db = [];
 					while($row = mysqli_fetch_array($r)) {
+						// add film id as index in array and roles as value
+						$film_ids_db[$row['film_id']] = $row['my_role'];
+					}
+
+					$sorted = sortArrayByKey($film_ids_db, $video_ids);
+
+
+					for($a = 0; $a < count($sorted); $a++) {
 						$id = $items[$a]['id'];
 						$thumbnail = $items[$a]['snippet']['thumbnails']['medium']['url'];
                     	$title = $items[$a]['snippet']['title'];
@@ -98,14 +121,14 @@
 						echo '<div class="video">';
 						echo '<img class="thumb" src="'.$thumbnail.'">';
 						echo '<h3>'.$title.'</h3>';
-						if($id == $row['film_id']) {
-							echo '<input type="text" value="'.$row['my_role'].'" data-video-id="'.$id.'">';
-						} else {
-							echo '<input type="text" data-video-id="'.$id.'">';
-						}
-						echo '</div>';
 
-						$a++;
+						echo '<form class="update_form" style="display: inline-flex; gap: .5em;" data-video-id="'.$id.'">';
+						echo '<input type="text" class="my_role" value="'.$sorted[$id].'">';
+						echo '<input type="submit" value="&#8593;" class="update_btn">';
+						echo '</form>';
+
+
+						echo '</div>';
 					}
 				} else {
 					echo "MySQL Error: ".mysqli_error($conn);
@@ -119,6 +142,6 @@
 		</main>
 
 		<script src="js/nav.js"></script>
-		<script src="js/updateFilmsTable.js"></script>
+		<script src="js/updateFilmsTable.js?v=1"></script>
 	</body>
 </html>

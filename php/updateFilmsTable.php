@@ -10,10 +10,12 @@
     $q = 'SELECT * FROM films';
     $r = mysqli_query($conn, $q);
 
+    // $video_ids = rsort($video_ids);
+
     if($r) {
         if(mysqli_num_rows($r) === 0) {
             $video_ids_insert = "";
-            foreach($video_ids as $video_id) {
+            foreach(array_reverse($video_ids) as $video_id) {
                 $video_ids_insert .= "('$video_id'),";
             }
             $q1 = "INSERT INTO films (film_id) VALUES ".rtrim($video_ids_insert, ",");
@@ -62,7 +64,7 @@
                     array_push($obj, $error);
                 }
             } else {
-                $success = ['status'=>'no values to update'];
+                $success = ['success'=>'no values to update'];
                 array_push($obj, $success);
             }
         }
