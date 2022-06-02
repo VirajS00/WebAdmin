@@ -5,7 +5,7 @@ const updated = document.querySelector('.updated');
 const updateForms = document.querySelectorAll('.update_form');
 
 button.addEventListener('click', async () => {
-	const fd = new FormData();
+	let fd = new FormData();
 	fd.append('update', true);
 	fd.append('video_ids', video_ids.value);
 	fd.append('total', total.value);
@@ -65,6 +65,45 @@ updateForms.forEach((form, i) => {
 			updated.style.opacity = '1';
 		}
 
+		setTimeout(() => {
+			updated.style.opacity = '0';
+		}, 2000);
+	});
+});
+
+const category_forms = document.querySelectorAll('.update_form_category');
+
+category_forms.forEach(catForm => {
+	catForm.addEventListener('submit', async (e) => {
+		e.preventDefault();
+		let videoId = catForm.getAttribute('data-video-id');
+		let category = catForm.querySelector('.category');
+	
+		const fd1 = new FormData();
+		fd1.append('video_id', videoId);
+		fd1.append('category', category.value);
+	
+		const req = await fetch('php/updateVideoCateg.php', {
+			method: 'POST',
+			body: fd1
+		});
+	
+		const res = await req.json();
+	
+		let status2 = Object.keys(res).toString();
+	
+		if (status2 == 'Success') {
+			updated.textContent = res.Success;
+			updated.style.backgroundColor = 'rgb(120, 215, 120)';
+			updated.style.color = 'rgb(0, 60, 0)';
+			updated.style.opacity = '1';
+		} else {
+			updated.textContent = res.Error;
+			updated.style.backgroundColor = 'rgb(233, 124, 124)';
+			updated.style.color = 'rgb(40, 0, 0)';
+			updated.style.opacity = '1';
+		}
+	
 		setTimeout(() => {
 			updated.style.opacity = '0';
 		}, 2000);

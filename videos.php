@@ -83,8 +83,8 @@
 			</h1>
 			<?php
 				include('php/connect.php');
-				$key = API_KEY_HERE;
-                $token = ACCESS_TOKEN_HERE;
+				$key = YOUR_KEY_HERE;
+                $token = YOUR_TOKEN_HERE;
 				$url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=PLNUNNqPwkQe-67Wlv8WkoK7fZO96I07wf&access_token=$token&key=$key";
 				$client = curl_init($url);
 				curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
@@ -105,12 +105,15 @@
 					$a = 0;
 					$roles = [];
 					$film_ids_db = [];
+					$film_categories = [];
 					while($row = mysqli_fetch_array($r)) {
 						// add film id as index in array and roles as value
 						$film_ids_db[$row['film_id']] = $row['my_role'];
+						$film_categories[$row['film_id']] = $row['category'];
 					}
 
 					$sorted = sortArrayByKey($film_ids_db, $video_ids);
+					$sorted_category = sortArrayByKey($film_categories, $video_ids);
 
 
 					for($a = 0; $a < count($sorted); $a++) {
@@ -127,6 +130,19 @@
 						echo '<input type="submit" value="&#8593;" class="update_btn">';
 						echo '</form>';
 
+						echo '<form class="update_form_category" style="display: inline-flex; gap: .5em;" data-video-id="'.$id.'">';
+						echo '<input type="text" class="category" list="categories" value="'.$sorted_category[$id].'">';
+						echo "<datalist id='categories'>";
+						echo "<option value='demo_reel'>";
+						echo "<option value='non_fiction'>";
+						echo "<option value='fiction'>";
+						echo "<option value='music_video'>";
+						echo "<option value='experimental'>";
+						echo "<option value='corporate_videos'>";
+						echo "<option value='other'>";
+						echo "</datalist>";
+						echo '<input type="submit" value="&#8593;" class="update_btn">';
+						echo '</form>';
 
 						echo '</div>';
 					}
@@ -142,6 +158,6 @@
 		</main>
 
 		<script src="js/nav.js"></script>
-		<script src="js/updateFilmsTable.js?v=1"></script>
+		<script src="js/updateFilmsTable.js?v=3"></script>
 	</body>
 </html>
