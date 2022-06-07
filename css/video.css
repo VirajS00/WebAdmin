@@ -15,7 +15,7 @@ main {
 	padding-bottom: 1rem;
 	padding-top: 1rem;
 	width: 90%;
-	max-width: 800px;
+	max-width: 1000px;
 }
 
 .video {
@@ -45,7 +45,7 @@ main {
 	justify-content: space-between;
 }
 
-button {
+button, .submit {
 	background-color: rgb(0, 114, 201);
 	border: 0;
 	color: #fff;
@@ -55,7 +55,7 @@ button {
 	transition: background-color 250ms ease;
 }
 
-button:hover {
+button:hover, .submit:hover {
 	background-color: rgb(1, 88, 154);
 }
 
@@ -91,3 +91,59 @@ button:hover {
 .update_btn:hover {
 	background-color: rgb(93, 193, 93);
 }
+
+.update_image_button {
+	font-size: .7rem;
+	background-color: rgb(0, 114, 201);
+	color: #fff;
+	text-decoration: none;
+	padding: 1em 2em;
+	border-radius: 100vh;
+	transition: background-color 250ms ease;
+}
+
+.update_image_button:hover {
+	background-color: rgb(1, 89, 157);
+}
+
+#user_image {
+	transform: scale(0);
+}
+
+#file_input_label {
+	cursor: pointer;
+	background-color: #bcbcbc;
+	color: #000;
+	display: block;
+	width: 100%;
+	padding: 1em;
+	text-align: center;
+	border-radius: 100vh;
+	transition: background-color 250ms ease;
+}
+
+#file_input_label:hover {
+	background-color: #a1a1a1;
+}
+
+.success, .error {
+	position: fixed;
+	height: 50px;
+	width: 100%;
+	background-color: rgb(204, 255, 204);
+	color: rgb(0, 56, 0);
+	z-index: 100;
+	inset: 0 0 auto auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: var(--font-primary);
+	opacity: 0;
+	transition: opacity 150ms ease;
+}
+
+.error {
+	background-color: rgb(255, 204, 204);
+	color: rgb(56, 0, 0);
+}
+

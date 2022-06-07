@@ -22,8 +22,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Videos</title>
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/video.css?v=2" />
+		<link rel="stylesheet" href="css/style.css?v=1" />
+		<link rel="stylesheet" href="css/video.css?v=3" />
 	</head>
 	<body>
 		<div class="updated">Updated</div>
@@ -85,6 +85,7 @@
 				include('php/connect.php');
 				$key = YOUR_KEY_HERE;
                 $token = YOUR_TOKEN_HERE;
+
 				$url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=PLNUNNqPwkQe-67Wlv8WkoK7fZO96I07wf&access_token=$token&key=$key";
 				$client = curl_init($url);
 				curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
@@ -120,6 +121,7 @@
 						$id = $items[$a]['id'];
 						$thumbnail = $items[$a]['snippet']['thumbnails']['medium']['url'];
                     	$title = $items[$a]['snippet']['title'];
+						$video_id = $items[$a]['snippet']['resourceId']['videoId'];
 
 						echo '<div class="video">';
 						echo '<img class="thumb" src="'.$thumbnail.'">';
@@ -144,6 +146,8 @@
 						echo '<input type="submit" value="&#8593;" class="update_btn">';
 						echo '</form>';
 
+						echo '<a href="videoImages.php?id='.$id.'&video_id='.$video_id.'" class="update_image_button">images</a>';
+
 						echo '</div>';
 					}
 				} else {
@@ -158,6 +162,6 @@
 		</main>
 
 		<script src="js/nav.js"></script>
-		<script src="js/updateFilmsTable.js?v=3"></script>
+		<script src="js/updateFilmsTable.js?v=4"></script>
 	</body>
 </html>
