@@ -1,9 +1,9 @@
 <?php
-    session_start();
-	if(!isset($_SESSION['user_id'])){
-		header('location: index.php');
-    }
-    include('php/connect.php');
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('location: index.php');
+}
+include 'php/connect.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,18 +82,18 @@
                 </thead>
                 <tbody>
                     <?php
-                        $q  = 'SELECT id, title, img_small, very_short_desc, sort FROM other ORDER BY sort';
-                        $r = mysqli_query($conn, $q);
-                        while ($row = mysqli_fetch_array($r)) {
-                            echo("<tr draggable='true' class='draggable' data-position='".$row['sort']."' data-index='".$row['id']."'>
-                                    <td>".$row['title']."</td>
-                                    <td><img src='../".$row['img_small']."' height='80px'></td>
-                                    <td>".$row['very_short_desc']."</td>
-                                    <td><form method='post' action='php/delOther.php' class='delForm'><input type='hidden' value='".$row['id']."' name='other_id'><input type='submit' value='&times;' class='del-button'></form></td>
-                                    <td><a href='editOther.php?id=".$row['id']."' class='editlink'>edit</a></td>
+$q = 'SELECT id, title, img_small, very_short_desc, sort FROM other ORDER BY sort';
+$r = mysqli_query($conn, $q);
+while ($row = mysqli_fetch_array($r)) {
+    echo ("<tr draggable='true' class='draggable' data-position='" . $row['sort'] . "' data-index='" . $row['id'] . "'>
+                                    <td>" . $row['title'] . "</td>
+                                    <td><img src='https://virajshukla.com/" . $row['img_small'] . "' height='80px'></td>
+                                    <td>" . $row['very_short_desc'] . "</td>
+                                    <td><form method='post' action='php/delOther.php' class='delForm'><input type='hidden' value='" . $row['id'] . "' name='other_id'><input type='submit' value='&times;' class='del-button'></form></td>
+                                    <td><a href='editOther.php?id=" . $row['id'] . "' class='editlink'>edit</a></td>
                                 </tr>");
-                        }
-                    ?>
+}
+?>
                 </tbody>
             </table>
         </main>

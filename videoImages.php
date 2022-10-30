@@ -1,6 +1,6 @@
 <?php
-    $id = $_GET['id'];
-    $video_id = $_GET['video_id'];
+$id = $_GET['id'];
+$video_id = $_GET['video_id'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -131,17 +131,17 @@
     <div class="error">error</div>
     <div class="success">success</div>
     <?php
-        $key = YOUR_KEY_HERE;
-        $url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=$video_id&key=$key";
-        $client = curl_init($url);
-		curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
-		$response = curl_exec($client);
-        $jsonArr = json_decode($response, true);
-		$items = $jsonArr['items'][0];
+$key = "AIzaSyDlE_7PxSKhSBjiIbrFSWcaXZHAIf21Lro";
+$url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=$video_id&key=$key";
+$client = curl_init($url);
+curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($client);
+$jsonArr = json_decode($response, true);
+$items = $jsonArr['items'][0];
 
-        $title = $items['snippet']['title'];
-        $thumb = $items['snippet']['thumbnails']['high']['url'];
-    ?>
+$title = $items['snippet']['title'];
+$thumb = $items['snippet']['thumbnails']['high']['url'];
+?>
 
     <a href="videos.php" class="bb">Back</a>
     <main>
@@ -159,42 +159,42 @@
             <h1>Images</h1>
             <div class="images">
                 <?php
-                    include('php/connect.php');
-                    $q = 'SELECT images FROM films WHERE film_id=\''.$id.'\'';
-                    $r = mysqli_query($conn, $q);
+include 'php/connect.php';
+$q = 'SELECT images FROM films WHERE film_id=\'' . $id . '\'';
+$r = mysqli_query($conn, $q);
 
-                    if($r) {
-                        if(mysqli_num_rows($r) == 1) {
-                            $row = mysqli_fetch_array($r);
-                            $images = $row['images'];
-                            if($images === '') {
-                                echo 'no images to display';
-                            } else {
-                                $image = explode(',', $images);
-                                for($i = 0; $i < count($image); $i++) {
-                                    echo "<div class='image-overlay'>";
-                                    echo "<picture>";
-                                    echo "<source type='image/webp' srcset='../filmImages/".$image[$i].".webp'>";
-                                    echo "<source type='image/jpeg' srcset='../filmImages/".$image[$i].".jpg'>";
-                                    echo "<img src='../filmImages/".$image[$i].".jpg' alt='thumb image'>";
-                                    echo "</picture>";
-                                    echo "<div class='overlay-card'>";
-                                    echo "<form method='post' action='php/deleteVideoImage.php' class='img_del_form'>";
-                                    echo "<input type='hidden' value='$id' id='id' name='id'>";
-                                    echo "<input type='hidden' value='$video_id' id='video_id' name='video_id'>";
-                                    echo "<input type='hidden' value='".$image[$i]."' id='image_name' name='image_name'>";
-                                    echo "<input type='submit' value='Delete' class='del_button'>";
-                                    echo "</form>";
-                                    echo "</div>";
+if ($r) {
+ if (mysqli_num_rows($r) == 1) {
+  $row = mysqli_fetch_array($r);
+  $images = $row['images'];
+  if ('' === $images) {
+   echo 'no images to display';
+  } else {
+   $image = explode(',', $images);
+   for ($i = 0; $i < count($image); $i++) {
+    echo "<div class='image-overlay'>";
+    echo "<picture>";
+    echo "<source type='image/webp' srcset='https://virajshukla.com/filmImages/" . $image[$i] . ".webp'>";
+    echo "<source type='image/jpeg' srcset='https://virajshukla.com/filmImages/" . $image[$i] . ".jpg'>";
+    echo "<img src='https://virajshukla.com/filmImages/" . $image[$i] . ".jpg' alt='thumb image'>";
+    echo "</picture>";
+    echo "<div class='overlay-card'>";
+    echo "<form method='post' action='php/deleteVideoImage.php' class='img_del_form'>";
+    echo "<input type='hidden' value='$id' id='id' name='id'>";
+    echo "<input type='hidden' value='$video_id' id='video_id' name='video_id'>";
+    echo "<input type='hidden' value='" . $image[$i] . "' id='image_name' name='image_name'>";
+    echo "<input type='submit' value='Delete' class='del_button'>";
+    echo "</form>";
+    echo "</div>";
 
-                                    echo "</div>";
-                                }
-                            }
-                        }
-                    } else {
-                        echo "Error: ".mysqli_error($conn);
-                    }
-                ?>
+    echo "</div>";
+   }
+  }
+ }
+} else {
+ echo "Error: " . mysqli_error($conn);
+}
+?>
             </div>
         </div>
     </main>

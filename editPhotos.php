@@ -1,20 +1,20 @@
 <?php
-	include('php/connect.php');
-	session_start();
-	if(!isset($_SESSION['user_id'])){
-		header('location: index.php');
-	}
-	$id = $_GET['img_id'];
-	$q = "SELECT * FROM images WHERE img_id = $id";
-	$r = mysqli_query($conn, $q);
-	if(!$r) {
-		echo "MySQL Error: ".mysqli_error($conn);
-	}
-	$data = mysqli_fetch_object($r);
-	$categ_id = $data->categ_id;
-	$category = $data->category;
-	$caption = $data->caption;
-	$url_small = $data->url_small;
+include 'php/connect.php';
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('location: index.php');
+}
+$id = $_GET['img_id'];
+$q = "SELECT * FROM images WHERE img_id = $id";
+$r = mysqli_query($conn, $q);
+if (!$r) {
+    echo "MySQL Error: " . mysqli_error($conn);
+}
+$data = mysqli_fetch_object($r);
+$categ_id = $data->categ_id;
+$category = $data->category;
+$caption = $data->caption;
+$url_small = $data->url_small;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,7 @@
 			<a href="javascript: history.go(-1);" class="back"><< Back</a>
 			<div class="form-container">
 				<img
-					src="<?php echo $url_small; ?>"
+					src="<?php echo (substr($url_small, 0, 5)) === "pics/" ? "https://virajshukla.com/" . $url_small : $url_small; ?>"
 					alt="star trails"
 					height="150px"
 					class="img_prev"
@@ -51,11 +51,11 @@
 					<div class="custom-select">
 						<select name="category" id="category" class="select">
 							<option value="null">--Select Category --</option>
-							<option value="Abstract" <?php if($categ_id == 1) { echo 'selected'; } ?>>Abstract</option>
-							<option value="Nature" <?php if($categ_id == 2) { echo 'selected'; } ?>>Nature</option>
-							<option value="Macro" <?php if($categ_id == 3) { echo 'selected'; } ?>>Macro</option>
+							<option value="Abstract" <?php if (1 == $categ_id) {echo 'selected';} ?>>Abstract</option>
+							<option value="Nature" <?php if (2 == $categ_id) {echo 'selected';} ?>>Nature</option>
+							<option value="Macro" <?php if (3 == $categ_id) {echo 'selected';} ?>>Macro</option>
 						</select>
-						<input type="hidden" id="categ_id" name="categ_id" value="<?php echo $categ_id;?>" />
+						<input type="hidden" id="categ_id" name="categ_id" value="<?php echo $categ_id; ?>" />
 					</div>
 					<input type="hidden" value="<?php echo $id; ?>" name="img_id" value="img_id">
 					<input type="submit" value="Submit" class="input btn">

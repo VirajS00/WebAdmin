@@ -3,7 +3,7 @@ const changePaths = () => {
 	const platform_img_src = [...document.querySelectorAll('.platform_img_src')];
 	platformImg.forEach((img, i) => {
 		const src = img.getAttribute('src');
-		const newSrc = '../' + src;
+		const newSrc = 'https://virajshukla.com/' + src;
 		img.setAttribute('src', newSrc);
 		platform_img_src[i].value = src;
 	});
